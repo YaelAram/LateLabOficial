@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+
+import CloseIcon from '../assets/close.svg';
+import LogoLaboratorio from '../assets/logo_siglas_blanco.png';
+import MenuIcon from '../assets/menu.svg';
+---
+
+<header class="primary">
+  <div class="flex align-items-center">
+    <button popovertarget="vertical-nav" type="button" class="primary">
+      <Image src={MenuIcon} alt="Icono de menú navegación" width="32" height="32" />
+    </button>
+    <a href="/" title="Ir a página principal" class="flex align-items-center">
+      <span class="on-primary-font">Late Lab</span>
+      <Image src={LogoLaboratorio} alt="Logo del Laboratorio de Lenguaje y Análisis de Textos" height="32" width="32" />
+    </a>
+  </div>
+  
+  <nav popover="auto" id="vertical-nav">
+    <div class="flex justify-end">
+      <button popovertarget="vertical-nav" type="button" aria-label="Close Menu" class="primary">
+        <Image src={CloseIcon} alt="Icono de cierre del menú de navegación" width="32" height="32" />
+      </button>
+    </div>
+    <menu>
+      <li><a href="">¿Quienes somos?</a></li>
+      <li><a href="">Miembros</a></li>
+      <li><a href="">Proyectos</a></li>
+      <li><a href="">Publicaciones</a></li>
+      <li><a href="">Contactanos</a></li>
+    </menu>
+  </nav>
+
+  <nav id="horizontal-nav">
+    <menu class="flex justify-end">
+      <li><a href="">¿Quienes somos?</a></li>
+      <li><a href="">Miembros</a></li>
+      <li><a href="">Proyectos</a></li>
+      <li><a href="">Publicaciones</a></li>
+      <li><a href="">Contactanos</a></li>
+    </menu>
+  </nav>
+</header>
+
+<style>
+  /* Estilos del Header, Titulo e Icono */
+  header {
+    padding: 8px 12px;
+  }
+
+  header > div > a {
+    text-align: center;
+  }
+
+  header > div > a > span {
+    font-size: x-large;
+    margin: 0 4px 0 12px;
+  }
+
+  /* Estilos comunes para el menu vertical y horizontal */
+  menu {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    color: var(--on-secondary-font-color);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: var(--on-primary-font-color);
+  }
+
+  /* Menu Horizontal (Pantallas Grandes como la una una PC) */
+  #horizontal-nav {
+    display: none;
+  }
+
+  #horizontal-nav > menu {
+    gap: 16px;
+  }
+
+  /* Menu Vertical (Pantallas Moviles) */
+  button {
+    border: none;
+    padding: 0;
+    border-radius: 8px;
+  }
+
+  #vertical-nav {
+    background: #333;
+    border: 0;
+    position: fixed;
+    inset: 0 auto auto 0;
+    height: 100dvh;
+    box-shadow: 0 0 25px 25px rgb(0 0 0 / 0.1);
+    width: 220px;
+
+    transition: translate 0.2s ease-in-out;
+    transition-behavior: allow-discrete;
+
+    &:popover-open {
+      @starting-style {
+        display: block;
+        translate: -100% 0;
+      }
+    }
+  }
+
+  #vertical-nav > div {
+    width: 100%;
+  }
+
+  #vertical-nav > menu {
+    padding: 0 16px;
+  }
+
+  #vertical-nav > menu > li {
+    margin-bottom: 16px;
+    font-size: larger;
+  }
+
+  @media screen and (width >= 800px) {
+    /* Estilos del Header, Titulo e Icono */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header > div > a > span {
+      margin: 0 4px 0 0;
+    }
+
+    /* Buton que abre el menu vertical (Pantallas Moviles) */
+    button {
+      display: none;
+    }
+
+    /* Estilos menu horizontal */
+    #horizontal-nav {
+      display: block;
+    }
+  }
+</style>

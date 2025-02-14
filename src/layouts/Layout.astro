@@ -1,0 +1,94 @@
+---
+import NavBar from '../components/navbar.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	keywords: string[];
+	image: string;
+}
+
+const {title, description, keywords, image} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="author" content="IIMAS, UNAM">
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description}>
+		<meta name="keywords" content={keywords.join(',')}>
+		<meta name="og:title" content={title}>
+		<meta name="og:image" content={image}>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<link rel="stylesheet" href="/styles/fonts.css">
+	</head>
+	<body>
+		<NavBar />
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-color: #5a2673;
+		--on-primary-font-color: #fff;
+		--on-secondary-font-color: #dcdcdc;
+
+		--surface-color: #fff;
+		--primary-font-color: #000;
+		--secondary-font-color: #333;
+	}
+
+	body {
+		font-family: 'MononokiNerdFontBold', sans-serif;
+		margin: 0;
+	}
+
+	/* Fondos y Color de Fuente */
+	.primary {
+		background-color: var(--primary-color);
+	}
+
+	.on-primary-font {
+		color: var(--on-primary-font-color);
+	}
+
+	.on-secondary-font {
+		color: var(--on-secondary-font-color);
+	}
+
+	.surface {
+		background-color: var(--surface-color);
+	}
+
+	.primary-font {
+		color: var(--primary-font-color);
+	}
+
+	.secondary-font {
+		color: var(--secondary-font-color);
+	}
+
+	/* Clases Helper (Flexbox) */
+	.flex {
+		display: flex;
+	}
+
+	.justify-center {
+		justify-content: center;
+	}
+
+	.justify-end {
+		justify-content: flex-end;
+	}
+
+	.align-items-center {
+		align-items: center;
+	}
+</style>
