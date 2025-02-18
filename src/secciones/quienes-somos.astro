@@ -12,14 +12,24 @@ const { quienesSomos } = Astro.props;
 <article>
   <h2 id="quienes-somos">¿Quiénes somos?</h2>
   <div>
-    <Image src={Bienvenida} alt="Imagen con los integrantes del laboratorio" loading="eager" />
+    <Image 
+      src={Bienvenida} 
+      alt="Imagen con los integrantes del laboratorio" 
+      loading="eager"
+      widths={[480, 720, 1024, 1600]}
+      sizes="(max-width: 600px) 480px, (max-width: 900px) 720px, (max-width: 1300px) 1024px, 1600px" />
     <div>
-      { quienesSomos.map((parrafo) => (<p class="parrafo">{parrafo}</p>)) }
+      { quienesSomos.map((parrafo) => (<p>{parrafo}</p>)) }
     </div>
   </div>
 </article>
 
 <style>
+  p {
+    text-wrap: balance;
+    max-width: 90ch;
+  }
+
   img {
     width: 100%;
     height: auto;

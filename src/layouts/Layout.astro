@@ -25,7 +25,6 @@ const {title, description, keywords, image, language} = Astro.props;
 		<meta name="og:image" content={image}>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
-		<link rel="stylesheet" href="/styles/fonts.css">
 	</head>
 	<body>
 		<NavBar />
@@ -42,6 +41,41 @@ const {title, description, keywords, image, language} = Astro.props;
 </style>
 
 <style is:global>
+	/* Definicion de MononokiNerdFont */
+	@font-face {
+	  font-family: "MononokiNerdFontBold";
+	  src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
+	  font-weight: bold;
+	}
+
+	@font-face {
+	  font-family: "MononokiNerdFontBoldItalic";
+	  src: url("/fonts/MononokiNerdFont-BoldItalic.woff2") format("woff2");
+	  font-weight: bold;
+	  font-style: italic;
+	}
+
+	@font-face {
+	  font-family: "MononokiNerdFontItalic";
+	  src: url("/fonts/MononokiNerdFont-Italic.woff2") format("woff2");
+	  font-style: italic;
+	}
+
+	@font-face {
+	  font-family: "MononokiNerdFont";
+	  src: url("/fonts/MononokiNerdFont-Regular.woff2") format("woff2");
+	  font-weight: 400;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+	  font-family: "MononokiNerdFontBold";
+	}
+
 	:root {
 		--primary-color: #5a2673;
 		--on-primary-font-color: #fff;
@@ -49,12 +83,12 @@ const {title, description, keywords, image, language} = Astro.props;
 
 		--surface-color: #fff;
 		--primary-font-color: #000;
-		--secondary-font-color: #666;
-		--accent: #88589c;
+		--secondary-font-color: #444;
+		--accent: #6a4979;
 	}
 
 	body {
-		font-family: 'MononokiNerdFontBold', sans-serif;
+		font-family: 'MononokiNerdFont', sans-serif;
 		margin: 0;
 	}
 
@@ -107,9 +141,5 @@ const {title, description, keywords, image, language} = Astro.props;
 	/* Otros */
 	.rounded {
 		border-radius: 8px;
-	}
-
-	.parrafo {
-		max-width: 90ch;
 	}
 </style>
