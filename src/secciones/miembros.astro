@@ -1,0 +1,59 @@
+---
+import TarjetaMiembro from '../componentes/tarjeta-miembro.astro';
+import type { Miembro } from '../types';
+
+interface Props {
+  miembros: Miembro[];
+}
+
+const { miembros } = Astro.props;
+const {activos, inactivos} = Object.groupBy(miembros, ({estatus}) => {
+  return (estatus === 'activo') ? 'activos' : 'inactivos';
+});
+---
+
+<section>
+  <h2 id="miembros">Miembros</h2>
+  <section>
+    <h3>Activos</h3>
+    <div>
+      { 
+        (!activos || activos.length === 0) ? 
+          <p>No hay alumnos activos que mostrar</p> : 
+          activos.map((miembro) => <TarjetaMiembro miembro={miembro} />) 
+      }
+    </div>
+  </section>
+  <section>
+    <h3>Inactivos</h3>
+    <div>
+      { 
+        (!inactivos || inactivos.length === 0) ? 
+          <p>No hay alumnos inactivos que mostrar</p> : 
+          inactivos.map((miembro) => <TarjetaMiembro miembro={miembro} loading="lazy" />) 
+      }
+    </div>
+  </section>
+</section>
+
+<style>
+  @media screen and (width >= 700px) {
+    div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (width >= 920px) {
+    div {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (width >= 1200px) {
+    div {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

@@ -9,11 +9,11 @@ import MenuIcon from '../assets/menu.svg';
 <header class="primary">
   <div class="flex align-items-center">
     <button popovertarget="vertical-nav" type="button" class="primary">
-      <Image src={MenuIcon} alt="Icono de menú navegación" width="32" height="32" />
+      <Image src={MenuIcon} alt="Icono de menú navegación" width="32" height="32" loading="eager" />
     </button>
     <a href="/" title="Ir a página principal" class="flex align-items-center">
-      <span class="on-primary-font">Late Lab</span>
-      <Image src={LogoLaboratorio} alt="Logo del Laboratorio de Lenguaje y Análisis de Textos" height="32" width="32" />
+      <span class="on-primary-font">LateLab</span>
+      <Image src={LogoLaboratorio} alt="Logo del Laboratorio de Lenguaje y Análisis de Textos" height="32" width="32" loading="eager" />
     </a>
   </div>
   
@@ -24,21 +24,21 @@ import MenuIcon from '../assets/menu.svg';
       </button>
     </div>
     <menu>
-      <li><a href="">¿Quienes somos?</a></li>
-      <li><a href="">Miembros</a></li>
-      <li><a href="">Proyectos</a></li>
-      <li><a href="">Publicaciones</a></li>
-      <li><a href="">Contactanos</a></li>
+      <li><a href="/#quienes-somos">¿Quiénes somos?</a></li>
+      <li><a href="/#miembros">Miembros</a></li>
+      <li><a href="/#proyectos">Proyectos</a></li>
+      <li><a href="/#publicaciones">Publicaciones</a></li>
+      <li><a href="/#contactanos">Contactanos</a></li>
     </menu>
   </nav>
 
   <nav id="horizontal-nav">
     <menu class="flex justify-end">
-      <li><a href="">¿Quienes somos?</a></li>
-      <li><a href="">Miembros</a></li>
-      <li><a href="">Proyectos</a></li>
-      <li><a href="">Publicaciones</a></li>
-      <li><a href="">Contactanos</a></li>
+      <li><a href="/#quienes-somos">¿Quiénes somos?</a></li>
+      <li><a href="/#miembros">Miembros</a></li>
+      <li><a href="/#proyectos">Proyectos</a></li>
+      <li><a href="/#publicaciones">Publicaciones</a></li>
+      <li><a href="/#contactanos">Contactanos</a></li>
     </menu>
   </nav>
 </header>
@@ -46,7 +46,11 @@ import MenuIcon from '../assets/menu.svg';
 <style>
   /* Estilos del Header, Titulo e Icono */
   header {
-    padding: 8px 12px;
+    padding: 8px 16px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    box-sizing: content-box;
   }
 
   header > div > a {
@@ -81,6 +85,7 @@ import MenuIcon from '../assets/menu.svg';
 
   #horizontal-nav > menu {
     gap: 16px;
+    margin-right: 48px;
   }
 
   /* Menu Vertical (Pantallas Moviles) */

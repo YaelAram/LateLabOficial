@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import type { Miembro } from '../types';
+
+interface Props {
+  miembro: Miembro;
+  loading?: "eager" | "lazy";
+}
+
+const { miembro, loading = "eager" } = Astro.props;
+
+const {nombre, puesto, periodo, imagen} = miembro;
+const {inicio, fin} = periodo;
+const descripcionImagen = `Miembro ${nombre}`;
+---
+<article class="flex justify-center align-items-center rounded">
+  <Image
+    src={imagen}
+    alt={descripcionImagen}
+    loading={loading} />
+  <div>
+    <hgroup>
+      <h4>{nombre}</h4>
+      <p class="accent-font">{puesto}</p>
+    </hgroup>
+    <p class="secondary-font">
+      <time datetime={inicio.formatoISO}>{inicio.formatoHumano}</time> -
+      <time datetime={fin.formatoISO}>{fin.formatoHumano}</time>
+    </p>
+  </div>
+</article>
+
+<style>
+  article {
+    gap: 16px;
+    outline: var(--primary-color) solid 2px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+
+  hgroup > h4 {
+    margin-bottom: 0;
+    font-size: large;
+  }
+
+
+  hgroup > p {
+    margin-top: 4px;
+  }
+
+  div > p {
+    font-size: small;
+    font-style: italic;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+</style>
