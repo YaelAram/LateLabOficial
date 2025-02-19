@@ -26,7 +26,7 @@ const {title, description, keywords, image, language} = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="surface">
 		<NavBar />
 		<main>
 			<slot />
@@ -74,6 +74,7 @@ const {title, description, keywords, image, language} = Astro.props;
 	h5,
 	h6 {
 	  font-family: "MononokiNerdFontBold";
+		color: var(--primary-font-color);
 	}
 
 	:root {
@@ -81,7 +82,8 @@ const {title, description, keywords, image, language} = Astro.props;
 		--on-primary-font-color: #fff;
 		--on-secondary-font-color: #dcdcdc;
 
-		--surface-color: #fff;
+		--surface-color: #e8d7f0;
+		--on-surface: #fff;
 		--primary-font-color: #000;
 		--secondary-font-color: #444;
 		--accent: #6a4979;
@@ -107,6 +109,10 @@ const {title, description, keywords, image, language} = Astro.props;
 
 	.surface {
 		background-color: var(--surface-color);
+	}
+
+	.on-surface {
+		background-color: var(--on-surface);
 	}
 
 	.primary-font {
@@ -141,5 +147,15 @@ const {title, description, keywords, image, language} = Astro.props;
 	/* Otros */
 	.rounded {
 		border-radius: 8px;
+	}
+
+	@media(prefers-color-scheme: dark) {
+		:root {
+			--surface-color: #111;
+			--on-surface: #000;
+			--primary-font-color: #fff;
+			--secondary-font-color: #888;
+			--accent: #885e9b;
+		}
 	}
 </style>
