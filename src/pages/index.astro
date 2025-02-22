@@ -1,40 +1,44 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Miembros from '../secciones/miembros.astro';
-import QuienesSomos from '../secciones/quienes-somos.astro';
+import Layout from "@layouts/Layout.astro";
+import Miembros from "@secciones/miembros.astro";
+import QuienesSomos from "@secciones/quienes-somos.astro";
 
-import { paginaIndex } from '../data/es/paginaIndex';
+import { paginaIndex } from "@informacion/es/paginaIndex";
 ---
 
 <Layout {...paginaIndex.metadata}>
-	<hgroup>
-		<h1>Laboratorio de Lenguaje y Análisis de Textos</h1>
-		<p class="secondary-font">
-			<abbr title="Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas">IIMAS</abbr>,
-			<abbr title="Universidad Nacional Autónoma de México">UNAM</abbr>
-		</p>
-	</hgroup>
-	<section>
-		<QuienesSomos quienesSomos={paginaIndex.quienesSomos} />
-		<Miembros miembros={paginaIndex.miembros} />
-	</section>
-	<section>
-		<h2 id="proyectos">Proyectos</h2>
-	</section> 
-	<section>
-		<h2 id="publicaciones">Publicaciones</h2>
-	</section>
-	<article>
-		<h2 id="contactanos">Contactanos</h2>
-	</article>
+  <hgroup>
+    <h1>Laboratorio de Lenguaje y Análisis de Textos</h1>
+    <p class="secondary-font">
+      <abbr
+        title="Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas"
+        >IIMAS</abbr
+      >,
+      <abbr title="Universidad Nacional Autónoma de México">UNAM</abbr>
+    </p>
+  </hgroup>
+  <section>
+    <QuienesSomos quienesSomos={paginaIndex.quienesSomos} />
+    <Miembros miembros={paginaIndex.miembros} />
+  </section>
+  <section>
+    <h2 id="proyectos">Proyectos</h2>
+  </section>
+  <section>
+    <h2 id="publicaciones">Publicaciones</h2>
+  </section>
+  <article>
+    <h2 id="contactanos">Contactanos</h2>
+  </article>
 </Layout>
 
-<style>	
-	hgroup h1, hgroup p {
-		text-align: center;
-	}
+<style>
+  hgroup h1,
+  hgroup p {
+    text-align: center;
+  }
 
-	hgroup h1 {
-		margin-bottom: 0;
-	}
+  hgroup h1 {
+    margin-bottom: 0;
+  }
 </style>

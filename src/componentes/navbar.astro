@@ -1,53 +1,74 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
-import CloseIcon from '../assets/close.svg';
-import LogoLaboratorio from '../assets/logo_siglas_blanco.png';
-import MenuIcon from '../assets/menu.svg';
+import CloseIcon from "@assets/close.svg";
+import LogoLaboratorio from "@assets/logo_siglas_blanco.png";
+import MenuIcon from "@assets/menu.svg";
 ---
 
 <header class="primary">
   <div class="flex align-items-center">
     <button popovertarget="vertical-nav" type="button" class="primary">
-      <Image src={MenuIcon} alt="Icono de menú navegación" width="32" height="32" loading="eager" />
+      <Image
+        src={MenuIcon}
+        alt="Icono de menú navegación"
+        width="32"
+        height="32"
+        loading="eager"
+      />
     </button>
     <a href="/" title="Ir a página principal" class="flex align-items-center">
       <span class="on-primary-font">LateLab</span>
-      <Image 
-        src={LogoLaboratorio} 
-        alt="Logo del Laboratorio de Lenguaje y Análisis de Textos" 
+      <Image
+        src={LogoLaboratorio}
+        alt="Logo del Laboratorio de Lenguaje y Análisis de Textos"
         width={32}
         height={32}
-        loading="eager" />
+        loading="eager"
+      />
     </a>
   </div>
-  
+
   <nav popover="auto" id="vertical-nav" class="on-surface">
     <div class="flex justify-end">
-      <button popovertarget="vertical-nav" type="button" aria-label="Close Menu" class="primary">
-        <Image 
-          src={CloseIcon} 
+      <button
+        popovertarget="vertical-nav"
+        type="button"
+        aria-label="Close Menu"
+        class="primary"
+      >
+        <Image
+          src={CloseIcon}
           alt="Icono de cierre del menú de navegación"
           loading="eager"
           width={32}
-          height={32} />
+          height={32}
+        />
       </button>
     </div>
     <menu>
-      <li><a href="/#quienes-somos" class="secondary-font">¿Quiénes somos?</a></li>
+      <li>
+        <a href="/#quienes-somos" class="secondary-font">¿Quiénes somos?</a>
+      </li>
       <li><a href="/#miembros" class="secondary-font">Miembros</a></li>
       <li><a href="/#proyectos" class="secondary-font">Proyectos</a></li>
-      <li><a href="/#publicaciones" class="secondary-font">Publicaciones</a></li>
+      <li>
+        <a href="/#publicaciones" class="secondary-font">Publicaciones</a>
+      </li>
       <li><a href="/#contactanos" class="secondary-font">Contactanos</a></li>
     </menu>
   </nav>
 
   <nav id="horizontal-nav">
     <menu class="flex justify-end">
-      <li><a href="/#quienes-somos" class="on-secondary-font">¿Quiénes somos?</a></li>
+      <li>
+        <a href="/#quienes-somos" class="on-secondary-font">¿Quiénes somos?</a>
+      </li>
       <li><a href="/#miembros" class="on-secondary-font">Miembros</a></li>
       <li><a href="/#proyectos" class="on-secondary-font">Proyectos</a></li>
-      <li><a href="/#publicaciones" class="on-secondary-font">Publicaciones</a></li>
+      <li>
+        <a href="/#publicaciones" class="on-secondary-font">Publicaciones</a>
+      </li>
       <li><a href="/#contactanos" class="on-secondary-font">Contactanos</a></li>
     </menu>
   </nav>

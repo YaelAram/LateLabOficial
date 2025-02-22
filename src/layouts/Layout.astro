@@ -1,161 +1,187 @@
 ---
-import NavBar from '../componentes/navbar.astro';
+import NavBar from "@componentes/navbar.astro";
 
 interface Props {
-	title: string;
-	description: string;
-	keywords: string[];
-	image: string;
-	language: string;
+  title: string;
+  description: string;
+  keywords: string[];
+  image: string;
+  language: string;
 }
 
-const {title, description, keywords, image, language} = Astro.props;
+const { title, description, keywords, image, language } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={language}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="author" content="IIMAS, UNAM">
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description}>
-		<meta name="keywords" content={keywords.join(',')}>
-		<meta name="og:title" content={title}>
-		<meta name="og:image" content={image}>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body class="surface">
-		<NavBar />
-		<main>
-			<slot />
-		</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="IIMAS, UNAM" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(",")} />
+    <meta name="og:title" content={title} />
+    <meta name="og:image" content={image} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="surface">
+    <NavBar />
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
 
 <style>
-	main {
-		padding: 64px 32px 16px;
-	}
+  main {
+    padding: 64px 32px 16px;
+  }
 </style>
 
 <style is:global>
-	/* Definicion de MononokiNerdFont */
-	@font-face {
-	  font-family: "MononokiNerdFontBold";
-	  src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
-	  font-weight: bold;
-	}
+  /* Definicion de MononokiNerdFont */
+  @font-face {
+    font-family: "MononokiNerdFontBold";
+    src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
+    font-weight: bold;
+  }
 
-	@font-face {
-	  font-family: "MononokiNerdFontBoldItalic";
-	  src: url("/fonts/MononokiNerdFont-BoldItalic.woff2") format("woff2");
-	  font-weight: bold;
-	  font-style: italic;
-	}
+  @font-face {
+    font-family: "MononokiNerdFontBoldItalic";
+    src: url("/fonts/MononokiNerdFont-BoldItalic.woff2") format("woff2");
+    font-weight: bold;
+    font-style: italic;
+  }
 
-	@font-face {
-	  font-family: "MononokiNerdFontItalic";
-	  src: url("/fonts/MononokiNerdFont-Italic.woff2") format("woff2");
-	  font-style: italic;
-	}
+  @font-face {
+    font-family: "MononokiNerdFontItalic";
+    src: url("/fonts/MononokiNerdFont-Italic.woff2") format("woff2");
+    font-style: italic;
+  }
 
-	@font-face {
-	  font-family: "MononokiNerdFont";
-	  src: url("/fonts/MononokiNerdFont-Regular.woff2") format("woff2");
-	  font-weight: 400;
-	}
+  @font-face {
+    font-family: "MononokiNerdFont";
+    src: url("/fonts/MononokiNerdFont-Regular.woff2") format("woff2");
+    font-weight: 400;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-	  font-family: "MononokiNerdFontBold";
-		color: var(--primary-font-color);
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "MononokiNerdFontBold";
+    color: var(--primary-font-color);
+  }
 
-	:root {
-		--primary-color: #5a2673;
-		--on-primary-font-color: #fff;
-		--on-secondary-font-color: #dcdcdc;
+  :root {
+    --primary-color: #5a2673;
+    --on-primary-font-color: #fff;
+    --on-secondary-font-color: #dcdcdc;
 
-		--surface-color: #e8d7f0;
-		--on-surface: #fff;
-		--primary-font-color: #000;
-		--secondary-font-color: #444;
-		--accent: #6a4979;
-	}
+    --surface-color: #e8d7f0;
+    --on-surface: #fff;
+    --primary-font-color: #000;
+    --secondary-font-color: #444;
+    --accent: #6a4979;
+  }
 
-	body {
-		font-family: 'MononokiNerdFont', sans-serif;
-		margin: 0;
-	}
+  body {
+    font-family: "MononokiNerdFont", sans-serif;
+    margin: 0;
+  }
 
-	/* Fondos y Color de Fuente */
-	.primary {
-		background-color: var(--primary-color);
-	}
+  /* Fondos y Color de Fuente */
+  .primary {
+    background-color: var(--primary-color);
+  }
 
-	.on-primary-font {
-		color: var(--on-primary-font-color);
-	}
+  .on-primary-font {
+    color: var(--on-primary-font-color);
+  }
 
-	.on-secondary-font {
-		color: var(--on-secondary-font-color);
-	}
+  .on-secondary-font {
+    color: var(--on-secondary-font-color);
+  }
 
-	.surface {
-		background-color: var(--surface-color);
-	}
+  .surface {
+    background-color: var(--surface-color);
+  }
 
-	.on-surface {
-		background-color: var(--on-surface);
-	}
+  .on-surface {
+    background-color: var(--on-surface);
+  }
 
-	.primary-font {
-		color: var(--primary-font-color);
-	}
+  .primary-font {
+    color: var(--primary-font-color);
+  }
 
-	.secondary-font {
-		color: var(--secondary-font-color);
-	}
+  .secondary-font {
+    color: var(--secondary-font-color);
+  }
 
-	.accent-font {
-		color: var(--accent);
-	}
+  .accent-font {
+    color: var(--accent);
+  }
 
-	/* Clases Helper (Flexbox) */
-	.flex {
-		display: flex;
-	}
+  /* Clases Helper (Flexbox) */
+  .flex {
+    display: flex;
+  }
 
-	.justify-center {
-		justify-content: center;
-	}
+  .justify-center {
+    justify-content: center;
+  }
 
-	.justify-end {
-		justify-content: flex-end;
-	}
+  .justify-end {
+    justify-content: flex-end;
+  }
 
-	.align-items-center {
-		align-items: center;
-	}
+  .align-items-center {
+    align-items: center;
+  }
 
-	/* Otros */
-	.rounded {
-		border-radius: 8px;
-	}
+  /* Otros */
+  .rounded {
+    border-radius: 8px;
+  }
 
-	@media(prefers-color-scheme: dark) {
-		:root {
-			--surface-color: #111;
-			--on-surface: #000;
-			--primary-font-color: #fff;
-			--secondary-font-color: #888;
-			--accent: #885e9b;
-		}
-	}
+  @media screen and (width >= 400px) {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (width >= 700px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (width >= 920px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media screen and (width >= 1200px) {
+    .grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-color: #111;
+      --on-surface: #000;
+      --primary-font-color: #fff;
+      --secondary-font-color: #888;
+      --accent: #885e9b;
+    }
+  }
 </style>

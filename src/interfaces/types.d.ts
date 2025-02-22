@@ -1,4 +1,3 @@
-
 export interface Miembro {
   nombre: string;
   puesto: string;

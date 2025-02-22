@@ -1,4 +1,6 @@
-export const miembros = [
+import type { Miembro } from '@interfaces/types';
+
+export const miembros: Miembro[] = [
   {
     nombre: "John Doe",
     puesto: "Maestro",
