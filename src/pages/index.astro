@@ -1,7 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Contacto from "@secciones/contacto.astro";
 import Miembros from "@secciones/miembros.astro";
+import Proyectos from "@secciones/proyectos.astro";
+import Publicaciones from "@secciones/publicaciones.astro";
 import QuienesSomos from "@secciones/quienes-somos.astro";
+import ServicioSocial from "@secciones/servicio-social.astro";
 
 import { paginaIndex } from "@informacion/es/paginaIndex";
 ---
@@ -12,8 +16,9 @@ import { paginaIndex } from "@informacion/es/paginaIndex";
     <p class="secondary-font">
       <abbr
         title="Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas"
-        >IIMAS</abbr
-      >,
+      >
+        IIMAS
+      </abbr>,
       <abbr title="Universidad Nacional Autónoma de México">UNAM</abbr>
     </p>
   </hgroup>
@@ -21,15 +26,10 @@ import { paginaIndex } from "@informacion/es/paginaIndex";
     <QuienesSomos quienesSomos={paginaIndex.quienesSomos} />
     <Miembros miembros={paginaIndex.miembros} />
   </section>
-  <section>
-    <h2 id="proyectos">Proyectos</h2>
-  </section>
-  <section>
-    <h2 id="publicaciones">Publicaciones</h2>
-  </section>
-  <article>
-    <h2 id="contactanos">Contactanos</h2>
-  </article>
+  <Publicaciones publicaciones={paginaIndex.publicaciones} />
+  <Proyectos proyectos={paginaIndex.proyectos} />
+  <ServicioSocial ofertas={paginaIndex.servicioSocial} />
+  <Contacto contacto={paginaIndex.contacto} />
 </Layout>
 
 <style>

@@ -1,0 +1,32 @@
+---
+import type { Publicacion } from "@interfaces/types";
+import TarjetaPublicacion from "./tarjeta-publicacion.astro";
+
+interface Props {
+  periodo: string;
+  publicaciones: Publicacion[];
+}
+
+const { publicaciones, periodo } = Astro.props;
+---
+
+<section>
+  <h3>{periodo}</h3>
+  <ul>
+    {
+      publicaciones.map((publicacion) => (
+        <TarjetaPublicacion publicacion={publicacion} />
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  section {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    list-style: none;
+  }
+</style>

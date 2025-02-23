@@ -1,5 +1,5 @@
 ---
-import TarjetaMiembro from "@componentes/tarjeta-miembro.astro";
+import ListaMiembros from "@componentes/miembros/lista-miembros.astro";
 import type { Miembro } from "@interfaces/types";
 
 interface Props {
@@ -7,51 +7,24 @@ interface Props {
 }
 
 const { miembros } = Astro.props;
-const { academicos, alumnos, exalumnos } = Object.groupBy(
-  miembros,
-  ({ estatus }) => {
-    if (estatus === "academico") return "academicos";
-    return estatus === "alumno" ? "alumnos" : "exalumnos";
-  },
-);
+const miembrosPorCargo = Object.entries(
+  Object.groupBy(miembros, ({ estatus }) => estatus),
+).toSorted((m1, m2) => m1[0].localeCompare(m2[0]));
+
+const obtenerTitulo = (cargo: string) => {
+  if (cargo === "academico") return "Acedémicos";
+  else if (cargo === "alumno") return "Alumnos";
+  return "Ex Alumnos";
+};
 ---
 
 <section>
   <h2 id="miembros">Miembros</h2>
-  <section>
-    <h3>Académicos</h3>
-    <div class="grid">
-      {
-        !academicos || academicos.length === 0 ? (
-          <p>No hay alumnos activos que mostrar</p>
-        ) : (
-          academicos.map((miembro) => <TarjetaMiembro miembro={miembro} />)
-        )
-      }
-    </div>
-  </section>
-  <section>
-    <h3>Alumnos Activos</h3>
-    <div class="grid">
-      {
-        !alumnos || alumnos.length === 0 ? (
-          <p>No hay alumnos activos que mostrar</p>
-        ) : (
-          alumnos.map((miembro) => <TarjetaMiembro miembro={miembro} />)
-        )
-      }
-    </div>
-  </section>
-  <section>
-    <h3>Ex Alumnos</h3>
-    <div class="grid">
-      {
-        !exalumnos || exalumnos.length === 0 ? (
-          <p>No hay alumnos inactivos que mostrar</p>
-        ) : (
-          exalumnos.map((miembro) => <TarjetaMiembro miembro={miembro} />)
-        )
-      }
-    </div>
-  </section>
+  {
+    miembrosPorCargo.map(([cargo, miembros]) => {
+      return (
+        <ListaMiembros titulo={obtenerTitulo(cargo)} miembros={miembros} />
+      );
+    })
+  }
 </section>

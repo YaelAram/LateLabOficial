@@ -1,0 +1,36 @@
+---
+import ListaPublicaciones from "@componentes/publicaciones/lista-publicaciones.astro";
+import type { Publicacion } from "@interfaces/types";
+
+interface Props {
+  publicaciones: Publicacion[];
+}
+
+const { publicaciones } = Astro.props;
+const publicacionesPorPeriodo = Object.entries(
+  Object.groupBy(publicaciones, ({ periodo }) => periodo),
+).toSorted((p1, p2) => p2[0].localeCompare(p1[0]));
+---
+
+<section>
+  <h2 id="publicaciones">Publicaciones</h2>
+  <div>
+    {
+      publicacionesPorPeriodo.map(([periodo, publicaciones]) => {
+        return (
+          <ListaPublicaciones
+            periodo={periodo}
+            publicaciones={publicaciones!}
+          />
+        );
+      })
+    }
+  </div>
+</section>
+
+<!-- <style>
+  div {
+    height: 60vh;
+    overflow: auto;
+  }
+</style> -->

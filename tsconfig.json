@@ -10,7 +10,8 @@
       "@informacion/*": ["./informacion/*"],
       "@layouts/*": ["./layouts/*"],
       "@secciones/*": ["./secciones/*"],
-      "@interfaces/*": ["./interfaces/*"]
+      "@interfaces/*": ["./interfaces/*"],
+      "@helpers/*": ["./helpers/*"]
     }
   }
 }

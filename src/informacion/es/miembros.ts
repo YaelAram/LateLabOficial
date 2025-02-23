@@ -2,7 +2,7 @@ import type { Miembro } from '@interfaces/types';
 
 export const miembros: Miembro[] = [
   {
-    nombre: "John Doe",
+    nombre: "Juan Pérez",
     puesto: "Maestro",
     estatus: "academico",
     periodo: {
@@ -17,7 +17,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "María López",
     puesto: "Maestro",
     estatus: "academico",
     periodo: {
@@ -32,7 +32,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "Carlos Gómez",
     puesto: "Maestro",
     estatus: "alumno",
     periodo: {
@@ -47,7 +47,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "Ana Rodríguez",
     puesto: "Maestro",
     estatus: "alumno",
     periodo: {
@@ -62,7 +62,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "Luis Fernández",
     puesto: "Maestro",
     estatus: "alumno",
     periodo: {
@@ -77,7 +77,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "Laura Martínez",
     puesto: "Maestro",
     estatus: "alumno",
     periodo: {
@@ -92,7 +92,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "José González",
     puesto: "Maestro",
     estatus: "exalumno",
     periodo: {
@@ -107,7 +107,7 @@ export const miembros: Miembro[] = [
     }
   },
   {
-    nombre: "John Doe",
+    nombre: "Sofía Hernández",
     puesto: "Maestro",
     estatus: "exalumno",
     periodo: {

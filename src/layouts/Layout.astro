@@ -73,7 +73,8 @@ const { title, description, keywords, image, language } = Astro.props;
   h4,
   h5,
   h6 {
-    font-family: "MononokiNerdFontBold";
+    font-family: "MononokiNerdFontBold", sans-serif;
+    font-display: swap;
     color: var(--primary-font-color);
   }
 
@@ -85,12 +86,13 @@ const { title, description, keywords, image, language } = Astro.props;
     --surface-color: #e8d7f0;
     --on-surface: #fff;
     --primary-font-color: #000;
-    --secondary-font-color: #444;
-    --accent: #6a4979;
+    --secondary-font-color: #222;
+    --accent: #3d2648;
   }
 
   body {
     font-family: "MononokiNerdFont", sans-serif;
+    font-display: swap;
     margin: 0;
   }
 
@@ -149,6 +151,16 @@ const { title, description, keywords, image, language } = Astro.props;
     border-radius: 8px;
   }
 
+  .outline {
+    outline: var(--primary-color) solid 2px;
+  }
+
+  .shadow {
+    box-shadow:
+      rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+
   @media screen and (width >= 400px) {
     .grid {
       display: grid;
@@ -181,7 +193,7 @@ const { title, description, keywords, image, language } = Astro.props;
       --on-surface: #000;
       --primary-font-color: #fff;
       --secondary-font-color: #888;
-      --accent: #885e9b;
+      --accent: #b979d7;
     }
   }
 </style>

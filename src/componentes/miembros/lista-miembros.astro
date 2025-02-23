@@ -1,0 +1,18 @@
+---
+import type { Miembro } from "@interfaces/types";
+import TarjetaMiembro from "./tarjeta-miembro.astro";
+
+interface Props {
+  titulo: string;
+  miembros: Miembro[];
+}
+
+const { titulo, miembros } = Astro.props;
+---
+
+<section>
+  <h3>{titulo}</h3>
+  <div class="grid">
+    {miembros.map((miembro) => <TarjetaMiembro miembro={miembro} />)}
+  </div>
+</section>

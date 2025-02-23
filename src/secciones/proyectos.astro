@@ -1,0 +1,13 @@
+---
+import type { Proyecto } from "@interfaces/types";
+
+interface Props {
+  proyectos: Proyecto[];
+}
+
+const { proyectos } = Astro.props;
+---
+
+<section>
+  <h2 id="proyectos">Proyectos</h2>
+</section>

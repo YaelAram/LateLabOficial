@@ -18,6 +18,7 @@ const { quienesSomos } = Astro.props;
       loading="eager"
       widths={[480, 720, 1024, 1600]}
       sizes="(max-width: 600px) 480px, (max-width: 900px) 720px, (max-width: 1300px) 1024px, 1600px"
+      format="avif"
     />
     <div>
       {quienesSomos.map((parrafo) => <p class="primary-font">{parrafo}</p>)}
