@@ -50,7 +50,14 @@ export interface ServicioSocial {
   eje_tematico: string;
 }
 
+export interface QuienesSomos {
+  parrafos: string[];
+  contactos: Contacto[];
+}
+
 export interface Contacto {
-  telefono: string;
-  email: string;
+  icono: string;
+  descripcion: string;
+  tipo: "url" | "correo";
+  contacto: string;
 }

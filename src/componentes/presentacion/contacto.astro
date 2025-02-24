@@ -1,0 +1,26 @@
+---
+import type { Contacto } from "@interfaces/types";
+
+interface Props {
+  contacto: Contacto;
+}
+const { contacto } = Astro.props;
+const url =
+  contacto.tipo === "url" ? contacto.contacto : `mailto:${contacto.contacto}`;
+---
+
+<a href={url} target="_blank" title={contacto.descripcion} class="boton">
+  <img
+    src={contacto.icono}
+    alt={contacto.descripcion}
+    width={32}
+    height={32}
+    loading="eager"
+  />
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>

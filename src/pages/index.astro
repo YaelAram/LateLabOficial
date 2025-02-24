@@ -1,11 +1,10 @@
 ---
+import Miembros from "@componentes/miembros/miembros.astro";
+import QuienesSomos from "@componentes/presentacion/quienes-somos.astro";
+import Proyectos from "@componentes/proyectos/proyectos.astro";
+import Publicaciones from "@componentes/publicaciones/publicaciones.astro";
+import ServicioSocial from "@componentes/servicio/servicio-social.astro";
 import Layout from "@layouts/Layout.astro";
-import Contacto from "@secciones/contacto.astro";
-import Miembros from "@secciones/miembros.astro";
-import Proyectos from "@secciones/proyectos.astro";
-import Publicaciones from "@secciones/publicaciones.astro";
-import QuienesSomos from "@secciones/quienes-somos.astro";
-import ServicioSocial from "@secciones/servicio-social.astro";
 
 import { paginaIndex } from "@informacion/es/paginaIndex";
 ---
@@ -29,7 +28,6 @@ import { paginaIndex } from "@informacion/es/paginaIndex";
   <Publicaciones publicaciones={paginaIndex.publicaciones} />
   <Proyectos proyectos={paginaIndex.proyectos} />
   <ServicioSocial ofertas={paginaIndex.servicioSocial} />
-  <Contacto contacto={paginaIndex.contacto} />
 </Layout>
 
 <style>

@@ -1,9 +1,3 @@
----
-import { Image } from "astro:assets";
-
-import LogoLaboratorio from "@assets/logo_siglas_blanco.png";
----
-
 <header class="primary">
   <div class="flex align-items-center">
     <button popovertarget="vertical-nav" type="button" class="primary">
@@ -17,8 +11,8 @@ import LogoLaboratorio from "@assets/logo_siglas_blanco.png";
     </button>
     <a href="/" title="Ir a página principal" class="flex align-items-center">
       <span class="on-primary-font">LateLab</span>
-      <Image
-        src={LogoLaboratorio}
+      <img
+        src="/logo_laboratorio.svg"
         alt="Logo del Laboratorio de Lenguaje y Análisis de Textos"
         width={32}
         height={32}
@@ -107,10 +101,6 @@ import LogoLaboratorio from "@assets/logo_siglas_blanco.png";
   a {
     text-decoration: none;
     cursor: pointer;
-  }
-
-  a:hover {
-    font-family: "MononokiNerdFontBold";
   }
 
   /* Menu Horizontal (Pantallas Grandes como la una una PC) */

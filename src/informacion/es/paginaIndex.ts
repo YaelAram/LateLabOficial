@@ -1,4 +1,4 @@
-import { contacto } from './contacto';
+
 import { indexMetadata } from './metadata';
 import { miembros } from './miembros';
 import { proyectos } from './proyectos';
@@ -13,5 +13,4 @@ export const paginaIndex = {
   proyectos,
   publicaciones,
   servicioSocial,
-  contacto
 };

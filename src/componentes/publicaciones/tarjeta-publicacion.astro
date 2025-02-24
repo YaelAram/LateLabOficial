@@ -7,7 +7,6 @@ interface Props {
 
 const { publicacion } = Astro.props;
 const { autores, pdf, tematicas, titulo, id } = publicacion;
-
 const formatoLista = new Intl.ListFormat("es", {
   type: "conjunction",
   style: "short",
@@ -25,7 +24,7 @@ const formatoLista = new Intl.ListFormat("es", {
   <div class="flex">
     <button
       type="button"
-      class="flex align-items-center citar-btn outline rounded shadow primary-font"
+      class="boton boton-texto-icono shadow"
       data-id={id}
       data-formato="apa"
     >
@@ -40,7 +39,7 @@ const formatoLista = new Intl.ListFormat("es", {
     </button>
     <button
       type="button"
-      class="flex align-items-center citar-btn outline rounded shadow primary-font"
+      class="boton boton-texto-icono shadow"
       data-id={id}
       data-formato="ieee"
     >
@@ -68,11 +67,11 @@ const formatoLista = new Intl.ListFormat("es", {
 
   hgroup > p {
     margin-top: 8px;
-    font-style: italic;
   }
 
   li > p {
     font-size: small;
+    font-style: italic;
   }
 
   li > div {
@@ -80,17 +79,18 @@ const formatoLista = new Intl.ListFormat("es", {
     gap: 16px;
   }
 
-  .citar-btn {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    font-weight: 700;
+  .boton-texto-icono {
+    display: flex;
+    align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-  }
 
-  .citar-btn:hover {
-    opacity: 0.6;
+    color: var(--primary-font-color);
+    font-weight: 700;
+
+    outline: var(--primary-color) solid 2px;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 8px 16px;
   }
 
   @media screen and (width > 1024px) {
@@ -101,30 +101,11 @@ const formatoLista = new Intl.ListFormat("es", {
 </style>
 
 <script>
-  import { formatoAPA, formatoIEEE } from "@helpers/citar";
-  import { publicaciones } from "@informacion/es/publicaciones";
+  import { citarPublicacion } from "@eventos/citar-publicacion";
 
-  const citarPublicacion = (boton: HTMLButtonElement) => {
-    return async () => {
-      const formato = boton.dataset.formato ?? "apa";
-
-      const id = boton.dataset.id;
-      if (!id) return;
-
-      const publicacion = publicaciones.find((p) => p.id === id);
-      if (!publicacion) return;
-
-      const cita =
-        formato === "ieee" ? formatoIEEE(publicacion) : formatoAPA(publicacion);
-      await navigator.clipboard.writeText(cita);
-
-      console.log("Cita copiada");
-      (boton.firstElementChild as HTMLImageElement).src = "/ok.svg";
-    };
-  };
-
-  const botones = document.querySelectorAll<HTMLButtonElement>(".citar-btn");
-  botones.forEach((boton) =>
-    boton.addEventListener("click", citarPublicacion(boton)),
-  );
+  document
+    .querySelectorAll<HTMLButtonElement>(".boton-texto-icono")
+    .forEach((boton) =>
+      boton.addEventListener("click", citarPublicacion(boton)),
+    );
 </script>
