@@ -5,16 +5,16 @@ export const publicaciones: Publicacion[] = [
     id: "1",
     titulo: "La Increíble Aventura del Misterio en las Montañas Perdidas",
     autores: [
-      { nombre: "Juan Pérez", apa: "Pérez, J.", ieee: "J. Pérez" },
-      { nombre: "María López", apa: "López, M.", ieee: "M. López" },
-      { nombre: "Carlos Gómez", apa: "Gómez, C.", ieee: "C. Gómez" },
-      { nombre: "Ana Rodríguez", apa: "Rodríguez, A.", ieee: "A. Rodríguez" },
-      { nombre: "Luis Fernández", apa: "Fernández, L.", ieee: "L. Fernández" },
-      { nombre: "Laura Martínez", apa: "Martínez, L.", ieee: "L. Martínez" },
-      { nombre: "José González", apa: "González, J.", ieee: "J. González" },
-      { nombre: "Sofía Hernández", apa: "Hernández, S.", ieee: "S. Hernández" },
-      { nombre: "Diego Sánchez", apa: "Sánchez, D.", ieee: "D. Sánchez" },
-      { nombre: "Paula Ramírez", apa: "Ramírez, P.", ieee: "P. Ramírez" }
+      { nombre: "Juan Pérez", apa: "Pérez, J.", ieee: "J. Pérez", bibtex: "Pérez, Juan" },
+      { nombre: "María López", apa: "López, M.", ieee: "M. López", bibtex: "López, María" },
+      { nombre: "Carlos Gómez", apa: "Gómez, C.", ieee: "C. Gómez", bibtex: "Gómez, Carlos" },
+      { nombre: "Ana Rodríguez", apa: "Rodríguez, A.", ieee: "A. Rodríguez", bibtex: "Rodríguez, Ana" },
+      { nombre: "Luis Fernández", apa: "Fernández, L.", ieee: "L. Fernández", bibtex: "Fernández, Luis" },
+      { nombre: "Laura Martínez", apa: "Martínez, L.", ieee: "L. Martínez", bibtex: "Martínez, Laura" },
+      { nombre: "José González", apa: "González, J.", ieee: "J. González", bibtex: "González, José" },
+      { nombre: "Sofía Hernández", apa: "Hernández, S.", ieee: "S. Hernández", bibtex: "Hernández, Sofía" },
+      { nombre: "Diego Sánchez", apa: "Sánchez, D.", ieee: "D. Sánchez", bibtex: "Sánchez, Diego" },
+      { nombre: "Paula Ramírez", apa: "Ramírez, P.", ieee: "P. Ramírez", bibtex: "Ramírez, Paula" },
     ],
     pdf: "/",
     periodo: 2015,
@@ -24,22 +24,32 @@ export const publicaciones: Publicacion[] = [
       "Topic 8", "Topic 9", "Topic 10", "Topic 11", "Topic 12"
     ],
     institucion: "Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas",
-    lugar: "Ciudad de México, México"
+    lugar: "Ciudad de México, México",
+    bibtex: {
+      tipo: "article",
+      data: {
+        doi: "123456789asd",
+        journal: "Fake Journal",
+        number: "5",
+        pages: "5--6",
+        volume: "28"
+      }
+    }
   },
   {
     id: "2",
     titulo: "El Último Viaje del Guerrero en Busca de la Verdad",
     autores: [
-      { nombre: "Martín Castro", apa: "Castro, M.", ieee: "M. Castro" },
-      { nombre: "Gabriela Vargas", apa: "Vargas, G.", ieee: "G. Vargas" },
-      { nombre: "Francisco Torres", apa: "Torres, F.", ieee: "F. Torres" },
-      { nombre: "Valeria Ríos", apa: "Ríos, V.", ieee: "V. Ríos" },
-      { nombre: "Santiago Ortiz", apa: "Ortiz, S.", ieee: "S. Ortiz" },
-      { nombre: "Isabel Morales", apa: "Morales, I.", ieee: "I. Morales" },
-      { nombre: "Miguel Peña", apa: "Peña, M.", ieee: "M. Peña" },
-      { nombre: "Camila Silva", apa: "Silva, C.", ieee: "C. Silva" },
-      { nombre: "Andrés Méndez", apa: "Méndez, A.", ieee: "A. Méndez" },
-      { nombre: "Lucía Delgado", apa: "Delgado, L.", ieee: "L. Delgado" }
+      { nombre: "Martín Castro", apa: "Castro, M.", ieee: "M. Castro", bibtex: "Castro, Martín" },
+      { nombre: "Gabriela Vargas", apa: "Vargas, G.", ieee: "G. Vargas", bibtex: "Vargas, Gabriela" },
+      { nombre: "Francisco Torres", apa: "Torres, F.", ieee: "F. Torres", bibtex: "Torres, Francisco" },
+      { nombre: "Valeria Ríos", apa: "Ríos, V.", ieee: "V. Ríos", bibtex: "Ríos, Valeria" },
+      { nombre: "Santiago Ortiz", apa: "Ortiz, S.", ieee: "S. Ortiz", bibtex: "Ortiz, Santiago" },
+      { nombre: "Isabel Morales", apa: "Morales, I.", ieee: "I. Morales", bibtex: "Morales, Isabel" },
+      { nombre: "Miguel Peña", apa: "Peña, M.", ieee: "M. Peña", bibtex: "Peña, Miguel" },
+      { nombre: "Camila Silva", apa: "Silva, C.", ieee: "C. Silva", bibtex: "Silva, Camila" },
+      { nombre: "Andrés Méndez", apa: "Méndez, A.", ieee: "A. Méndez", bibtex: "Méndez, Andrés" },
+      { nombre: "Lucía Delgado", apa: "Delgado, L.", ieee: "L. Delgado", bibtex: "Delgado, Lucía" },
     ],
     pdf: "/",
     periodo: 2015,
@@ -49,22 +59,29 @@ export const publicaciones: Publicacion[] = [
       "Topic 8", "Topic 9", "Topic 10", "Topic 11", "Topic 12"
     ],
     institucion: "Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas",
-    lugar: "Ciudad de México, México"
+    lugar: "Ciudad de México, México",
+    bibtex: {
+      tipo: "inproceedings",
+      data: {
+        book: "Fake book",
+        pages: "7--9",
+      },
+    },
   },
   {
     id: "3",
     titulo: "El Secreto Oculto en el Corazón del Bosque Encantado",
     autores: [
-      { nombre: "Martín Castro", apa: "Castro, M.", ieee: "M. Castro" },
-      { nombre: "Gabriela Vargas", apa: "Vargas, G.", ieee: "G. Vargas" },
-      { nombre: "Francisco Torres", apa: "Torres, F.", ieee: "F. Torres" },
-      { nombre: "Valeria Ríos", apa: "Ríos, V.", ieee: "V. Ríos" },
-      { nombre: "Santiago Ortiz", apa: "Ortiz, S.", ieee: "S. Ortiz" },
-      { nombre: "Isabel Morales", apa: "Morales, I.", ieee: "I. Morales" },
-      { nombre: "Miguel Peña", apa: "Peña, M.", ieee: "M. Peña" },
-      { nombre: "Camila Silva", apa: "Silva, C.", ieee: "C. Silva" },
-      { nombre: "Andrés Méndez", apa: "Méndez, A.", ieee: "A. Méndez" },
-      { nombre: "Lucía Delgado", apa: "Delgado, L.", ieee: "L. Delgado" },
+      { nombre: "Martín Castro", apa: "Castro, M.", ieee: "M. Castro", bibtex: "Castro, Martín" },
+      { nombre: "Gabriela Vargas", apa: "Vargas, G.", ieee: "G. Vargas", bibtex: "Vargas, Gabriela" },
+      { nombre: "Francisco Torres", apa: "Torres, F.", ieee: "F. Torres", bibtex: "Torres, Francisco" },
+      { nombre: "Valeria Ríos", apa: "Ríos, V.", ieee: "V. Ríos", bibtex: "Ríos, Valeria" },
+      { nombre: "Santiago Ortiz", apa: "Ortiz, S.", ieee: "S. Ortiz", bibtex: "Ortiz, Santiago" },
+      { nombre: "Isabel Morales", apa: "Morales, I.", ieee: "I. Morales", bibtex: "Morales, Isabel" },
+      { nombre: "Miguel Peña", apa: "Peña, M.", ieee: "M. Peña", bibtex: "Peña, Miguel" },
+      { nombre: "Camila Silva", apa: "Silva, C.", ieee: "C. Silva", bibtex: "Silva, Camila" },
+      { nombre: "Andrés Méndez", apa: "Méndez, A.", ieee: "A. Méndez", bibtex: "Méndez, Andrés" },
+      { nombre: "Lucía Delgado", apa: "Delgado, L.", ieee: "L. Delgado", bibtex: "Delgado, Lucía" },
     ],
     pdf: "/",
     periodo: 2024,
@@ -74,22 +91,32 @@ export const publicaciones: Publicacion[] = [
       "Topic 8", "Topic 9", "Topic 10", "Topic 11", "Topic 12"
     ],
     institucion: "Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas",
-    lugar: "Ciudad de México, México"
+    lugar: "Ciudad de México, México",
+    bibtex: {
+      tipo: "article",
+      data: {
+        doi: "123456789asd",
+        journal: "The Second Fake Journal",
+        number: "7",
+        pages: "50--60",
+        volume: "30"
+      }
+    }
   },
   {
     id: "4",
     titulo: "Las Crónicas de una Ciudad Sumergida en la Niebla",
     autores: [
-      { nombre: "Emilio Navarro", apa: "Navarro, E.", ieee: "E. Navarro" },
-      { nombre: "Patricia Castillo", apa: "Castillo, P.", ieee: "P. Castillo" },
-      { nombre: "Ricardo Reyes", apa: "Reyes, R.", ieee: "R. Reyes" },
-      { nombre: "Elena Romero", apa: "Romero, E.", ieee: "E. Romero" },
-      { nombre: "Fernando Vega", apa: "Vega, F.", ieee: "F. Vega" },
-      { nombre: "Alejandra Luna", apa: "Luna, A.", ieee: "A. Luna" },
-      { nombre: "Jorge Rivera", apa: "Rivera, J.", ieee: "J. Rivera" },
-      { nombre: "Natalia Mendoza", apa: "Mendoza, N.", ieee: "N. Mendoza" },
-      { nombre: "Héctor Campos", apa: "Campos, H.", ieee: "H. Campos" },
-      { nombre: "Victoria Espinoza", apa: "Espinoza, V.", ieee: "V. Espinoza" }
+      { nombre: "Emilio Navarro", apa: "Navarro, E.", ieee: "E. Navarro", bibtex: "Navarro, Emilio" },
+      { nombre: "Patricia Castillo", apa: "Castillo, P.", ieee: "P. Castillo", bibtex: "Castillo, Patricia" },
+      { nombre: "Ricardo Reyes", apa: "Reyes, R.", ieee: "R. Reyes", bibtex: "Reyes, Ricardo" },
+      { nombre: "Elena Romero", apa: "Romero, E.", ieee: "E. Romero", bibtex: "Romero, Elena" },
+      { nombre: "Fernando Vega", apa: "Vega, F.", ieee: "F. Vega", bibtex: "Vega, Fernando" },
+      { nombre: "Alejandra Luna", apa: "Luna, A.", ieee: "A. Luna", bibtex: "Luna, Alejandra" },
+      { nombre: "Jorge Rivera", apa: "Rivera, J.", ieee: "J. Rivera", bibtex: "Rivera, Jorge" },
+      { nombre: "Natalia Mendoza", apa: "Mendoza, N.", ieee: "N. Mendoza", bibtex: "Mendoza, Natalia" },
+      { nombre: "Héctor Campos", apa: "Campos, H.", ieee: "H. Campos", bibtex: "Campos, Héctor" },
+      { nombre: "Victoria Espinoza", apa: "Espinoza, V.", ieee: "V. Espinoza", bibtex: "Espinoza, Victoria" },
     ],
     pdf: "/",
     periodo: 2024,
@@ -99,6 +126,13 @@ export const publicaciones: Publicacion[] = [
       "Topic 8", "Topic 9", "Topic 10", "Topic 11", "Topic 12"
     ],
     institucion: "Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas",
-    lugar: "Ciudad de México, México"
+    lugar: "Ciudad de México, México",
+    bibtex: {
+      tipo: "inproceedings",
+      data: {
+        book: "The Second Fake book",
+        pages: "70--90",
+      },
+    }
   },
 ];

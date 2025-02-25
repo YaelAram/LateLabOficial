@@ -32,14 +32,28 @@ export interface Recurso {
 export interface Publicacion {
   id: string;
   titulo: string;
-  autores: { nombre: string, apa: string, ieee: string; }[];
+  autores: { nombre: string, apa: string, ieee: string; bibtex: string; }[];
   pdf: string;
   tematicas: string[];
   periodo: number; // Año
   tipo: "Trabajo de grado" | "Tesis de maestría" | "Tesis doctoral";
   lugar: string;
   institucion: string;
+  bibtex: { tipo: "article"; data: BibtexArticle; } | { tipo: "inproceedings", data: BibtextInproceedings; };
 };
+
+export interface BibtexArticle {
+  journal: string;
+  volume: string;
+  number: string;
+  pages: string;
+  doi: string;
+}
+
+export interface BibtextInproceedings {
+  book: string;
+  pages: string;
+}
 
 export interface ServicioSocial {
   nombre: string;
