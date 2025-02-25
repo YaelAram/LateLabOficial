@@ -29,7 +29,7 @@ const { quienesSomos } = Astro.props;
         ))
       }
       <h3>Contactanos</h3>
-      <address>
+      <address class="flex gap-16">
         {
           quienesSomos.contactos.map((contacto) => (
             <Contacto contacto={contacto} />
@@ -53,11 +53,6 @@ const { quienesSomos } = Astro.props;
 
   h3 {
     margin-bottom: 8px;
-  }
-
-  address {
-    display: flex;
-    gap: 16px;
   }
 
   @media screen and (width >= 920px) {

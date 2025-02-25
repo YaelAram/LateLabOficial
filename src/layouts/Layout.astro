@@ -8,7 +8,6 @@ interface Props {
   image: string;
   language: string;
 }
-
 const { title, description, keywords, image, language } = Astro.props;
 ---
 
@@ -36,7 +35,7 @@ const { title, description, keywords, image, language } = Astro.props;
 
 <style>
   main {
-    padding: 64px 48px 16px;
+    padding: 64px 48px 32px;
   }
 </style>
 
@@ -146,7 +145,12 @@ const { title, description, keywords, image, language } = Astro.props;
     align-items: center;
   }
 
-  /* Otros */
+  /* Tarjetas */
+  .lista-tarjetas {
+    padding: 0;
+    list-style: none;
+  }
+
   .rounded {
     border-radius: 8px;
   }
@@ -168,38 +172,76 @@ const { title, description, keywords, image, language } = Astro.props;
 
   .boton:hover {
     opacity: 0.7;
-    scale: 1.02;
+    scale: 1.04;
   }
 
   .boton:active {
-    scale: 0.98;
+    scale: 0.96;
     opacity: 0.5;
   }
 
-  @media screen and (width >= 400px) {
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+  .boton-texto-icono {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--primary-font-color);
+    font-weight: 700;
+
+    outline: var(--primary-color) solid 2px;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 8px 16px;
+  }
+
+  .tertiary-text {
+    font-size: small;
+    font-style: italic;
+  }
+
+  .tarjeta-gap {
+    margin-bottom: 24px;
+  }
+
+  .seccion-botones {
+    margin-top: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .titulo-sin-margen {
+    margin: 0;
+  }
+
+  @media screen and (width > 1024px) {
+    .tarjeta-li {
+      width: 85vw;
     }
   }
 
-  @media screen and (width >= 700px) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  /* Espaciado */
+  .mt-32 {
+    margin-top: 32px;
   }
 
-  @media screen and (width >= 920px) {
-    .grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .p-16 {
+    padding: 16px;
   }
 
-  @media screen and (width >= 1200px) {
-    .grid {
-      grid-template-columns: repeat(6, 1fr);
-    }
+  .p-8-16 {
+    padding: 8px 16px;
+  }
+
+  .gap-16 {
+    gap: 16px;
+  }
+
+  .mb-0 {
+    margin-bottom: 0;
+  }
+
+  .mt-8 {
+    margin-top: 8px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -209,12 +251,6 @@ const { title, description, keywords, image, language } = Astro.props;
       --primary-font-color: #fff;
       --secondary-font-color: #888;
       --accent: #b979d7;
-    }
-
-    .shadow {
-      box-shadow:
-        rgb(255 255 255 / 0.05) 0px 10px 20px,
-        rgb(255 255 255 / 0.08) 0px 6px 6px;
     }
   }
 </style>

@@ -1,13 +1,16 @@
 ---
 import type { ServicioSocial } from "@interfaces/types";
+import TarjetaOferta from "./tarjeta-oferta.astro";
 
 interface Props {
   ofertas: ServicioSocial[];
 }
-
 const { ofertas } = Astro.props;
 ---
 
-<section>
+<section class="mt-32">
   <h2 id="servicio-social">Servicio Social</h2>
+  <ul class="lista-tarjetas">
+    {ofertas.map((oferta) => <TarjetaOferta oferta={oferta} />)}
+  </ul>
 </section>

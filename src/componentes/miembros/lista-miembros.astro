@@ -11,7 +11,35 @@ const { titulo, miembros } = Astro.props;
 
 <section>
   <h3>{titulo}</h3>
-  <div class="grid">
+  <div>
     {miembros.map((miembro) => <TarjetaMiembro miembro={miembro} />)}
   </div>
 </section>
+
+<style>
+  @media screen and (width >= 400px) {
+    div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (width >= 700px) {
+    div {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (width >= 920px) {
+    div {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media screen and (width >= 1200px) {
+    div {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+</style>

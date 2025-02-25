@@ -1,0 +1,26 @@
+---
+import type { Proyecto } from "@interfaces/types";
+import RecursoProyecto from "./recurso-proyecto.astro";
+
+interface Props {
+  proyecto: Proyecto;
+}
+
+const { proyecto } = Astro.props;
+const miembros = new Intl.ListFormat("es", {
+  style: "short",
+  type: "conjunction",
+}).format(proyecto.colaboladores);
+---
+
+<li class="rounded outline on-surface shadow p-16 tarjeta-gap tarjeta-li">
+  <h3 class="titulo-sin-margen">
+    {proyecto.nombre}
+    <span class="accent-font">({proyecto.periodo})</span>
+  </h3>
+  <p class="primary-font">{proyecto.descripcion}</p>
+  <p class="secondary-font tertiary-text">{miembros}</p>
+  <div class="flex seccion-botones gap-16">
+    {proyecto.recursos.map((recurso) => <RecursoProyecto recurso={recurso} />)}
+  </div>
+</li>

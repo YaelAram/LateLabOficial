@@ -1,0 +1,36 @@
+---
+import type { ServicioSocial } from "@interfaces/types";
+
+interface Props {
+  oferta: ServicioSocial;
+}
+const { oferta } = Astro.props;
+---
+
+<li class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li">
+  <hgroup>
+    <h3 class="titulo-sin-margen">
+      <a href={oferta.url} target="_blank" class="primary-font"
+        >{oferta.nombre}</a
+      >
+    </h3>
+    <p class="accent-font mt-8">{oferta.eje_tematico}</p>
+  </hgroup>
+  <section>
+    <p class="secondary-font mt-8">
+      Clave: <strong class="primary-font">{oferta.clave}</strong>
+    </p>
+    <h4 class="titulo-sin-margen">Objetivo</h4>
+    <p class="secondary-font mt-8">{oferta.objetivo}</p>
+  </section>
+  <section>
+    <h4 class="titulo-sin-margen">Responsable</h4>
+    <p class="secondary-font mt-8 mb-0">
+      {oferta.responsable.cargo}
+      {oferta.responsable.nombre}
+    </p>
+    <p class="secondary-font mt-8">
+      Contacto: <strong class="primary-font">{oferta.responsable.email}</strong>
+    </p>
+  </section>
+</li>

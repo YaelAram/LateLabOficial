@@ -10,42 +10,19 @@ const { nombre, puesto, periodo } = miembro;
 const { inicio, fin } = periodo;
 ---
 
-<article class="rounded on-surface shadow outline">
+<article class="rounded on-surface shadow outline p-8-16 tarjeta-gap gap-16">
   <hgroup>
-    <h4>{nombre}</h4>
-    <p class="accent-font">{puesto}</p>
+    <h4 class="titulo-sin-margen">{nombre}</h4>
+    <p class="accent-font mt-8">{puesto}</p>
   </hgroup>
-  <p class="secondary-font">
+  <p class="secondary-font tertiary-text mb-0">
     <time datetime={inicio.formatoISO}>{inicio.formatoHumano}</time> -
     <time datetime={fin.formatoISO}>{fin.formatoHumano}</time>
   </p>
 </article>
 
 <style>
-  article {
-    gap: 16px;
-    padding: 8px 16px;
-    margin-bottom: 16px;
-  }
-
   hgroup > h4 {
-    margin-bottom: 0;
     font-size: large;
-  }
-
-  hgroup > p {
-    margin-top: 4px;
-  }
-
-  article > p {
-    font-size: small;
-    font-style: italic;
-  }
-
-  img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
   }
 </style>

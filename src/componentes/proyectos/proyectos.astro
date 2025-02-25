@@ -1,13 +1,24 @@
 ---
 import type { Proyecto } from "@interfaces/types";
+import TarjetaProyecto from "./tarjeta-proyecto.astro";
 
 interface Props {
   proyectos: Proyecto[];
 }
 
 const { proyectos } = Astro.props;
+const proyectoPorAntiguedad = proyectos.toSorted(
+  (p1, p2) => p2.periodo - p1.periodo,
+);
 ---
 
 <section>
   <h2 id="proyectos">Proyectos</h2>
+  <ul class="lista-tarjetas">
+    {
+      proyectoPorAntiguedad.map((proyecto) => (
+        <TarjetaProyecto proyecto={proyecto} />
+      ))
+    }
+  </ul>
 </section>

@@ -13,15 +13,17 @@ const formatoLista = new Intl.ListFormat("es", {
 });
 ---
 
-<li class="rounded on-surface shadow outline">
+<li class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li">
   <hgroup>
-    <h4><a href={pdf} class="primary-font">{titulo}</a></h4>
-    <p class="accent-font">
+    <h4 class="titulo-sin-margen">
+      <a href={pdf} class="primary-font">{titulo}</a>
+    </h4>
+    <p class="accent-font mt-8">
       {formatoLista.format(autores.map(({ nombre }) => nombre))}
     </p>
   </hgroup>
-  <p class="secondary-font">{formatoLista.format(tematicas)}</p>
-  <div class="flex">
+  <p class="secondary-font tertiary-text">{formatoLista.format(tematicas)}</p>
+  <div class="flex seccion-botones gap-16">
     <button
       type="button"
       class="boton boton-texto-icono shadow"
@@ -55,56 +57,11 @@ const formatoLista = new Intl.ListFormat("es", {
   </div>
 </li>
 
-<style>
-  li {
-    padding: 16px;
-    margin-bottom: 16px;
-  }
-
-  hgroup > h4 {
-    margin: 0;
-  }
-
-  hgroup > p {
-    margin-top: 8px;
-  }
-
-  li > p {
-    font-size: small;
-    font-style: italic;
-  }
-
-  li > div {
-    justify-content: flex-end;
-    gap: 16px;
-  }
-
-  .boton-texto-icono {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    color: var(--primary-font-color);
-    font-weight: 700;
-
-    outline: var(--primary-color) solid 2px;
-    border-radius: 8px;
-    background-color: transparent;
-    padding: 8px 16px;
-  }
-
-  @media screen and (width > 1024px) {
-    li {
-      width: 85vw;
-    }
-  }
-</style>
-
 <script>
   import { citarPublicacion } from "@eventos/citar-publicacion";
 
   document
-    .querySelectorAll<HTMLButtonElement>(".boton-texto-icono")
+    .querySelectorAll<HTMLButtonElement>(".boton-texto-icono[data-formato]")
     .forEach((boton) =>
       boton.addEventListener("click", citarPublicacion(boton)),
     );

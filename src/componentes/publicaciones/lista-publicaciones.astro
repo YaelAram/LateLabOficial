@@ -11,7 +11,7 @@ const { publicaciones, periodo } = Astro.props;
 
 <section>
   <h3>{periodo}</h3>
-  <ul>
+  <ul class="lista-tarjetas">
     {
       publicaciones.map((publicacion) => (
         <TarjetaPublicacion publicacion={publicacion} />
@@ -23,9 +23,5 @@ const { publicaciones, periodo } = Astro.props;
 <style>
   section {
     margin-bottom: 40px;
-  }
-
-  ul {
-    list-style: none;
   }
 </style>

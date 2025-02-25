@@ -1,0 +1,27 @@
+---
+import type { Recurso } from "@interfaces/types";
+
+interface Props {
+  recurso: Recurso;
+}
+const { recurso } = Astro.props;
+---
+
+<a href={recurso.recurso} target="_blank" title={recurso.descripcion}>
+  <button type="button" class="boton boton-texto-icono shadow">
+    {recurso.nombre}
+    <img
+      src={recurso.icono}
+      alt={recurso.descripcion}
+      loading="lazy"
+      width={24}
+      height={24}
+    />
+  </button>
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>

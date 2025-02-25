@@ -18,9 +18,14 @@ export interface Proyecto {
   nombre: string;
   colaboladores: string[];
   periodo: number; // Año
-  repositorio?: string;
-  publicacion?: string;
-  demo?: string;
+  recursos: Recurso[]
+  descripcion: string;
+}
+
+export interface Recurso {
+  recurso: string;
+  nombre: string;
+  icono: string;
   descripcion: string;
 }
 
@@ -38,8 +43,6 @@ export interface Publicacion {
 
 export interface ServicioSocial {
   nombre: string;
-  institucion: string;
-  dependencia: string;
   responsable: {
     nombre: string;
     cargo: string;
@@ -48,6 +51,7 @@ export interface ServicioSocial {
   clave: string;
   objetivo: string;
   eje_tematico: string;
+  url: string;
 }
 
 export interface QuienesSomos {
