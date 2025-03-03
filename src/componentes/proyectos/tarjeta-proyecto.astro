@@ -2,24 +2,40 @@
 import type { Proyecto } from "@interfaces/types";
 import RecursoProyecto from "./recurso-proyecto.astro";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - proyecto: Contiene la informacion del proyecto a mostrar.
+*/
 interface Props {
   proyecto: Proyecto;
 }
 
 const { proyecto } = Astro.props;
+/*
+  Creamos un formateador de lista el cual convierte un arreglo en un string cada uno separado por una coma "," excepto
+  el penultimo y ultimo elementos separados por el texto " y ", por ejemplo, la lista ["A", "B", "C"] es transformada a
+  "A, B, y C".
+*/
 const miembros = new Intl.ListFormat("es", {
   style: "short",
   type: "conjunction",
 }).format(proyecto.colaboladores);
 ---
 
+<!-- Creamos una nueva tarjeta -->
 <li class="rounded outline on-surface shadow p-16 tarjeta-gap tarjeta-li">
+  <!-- Mostramos el nombre del poryecto y el año en que fue desarrollado -->
   <h3 class="titulo-sin-margen">
     {proyecto.nombre}
     <span class="accent-font">({proyecto.periodo})</span>
   </h3>
+  <!-- Mostramos una breve descripcion del proyecto -->
   <p class="primary-font">{proyecto.descripcion}</p>
+  <!-- Mostramos los miembros del equipo de desarrollo del proyecto -->
   <p class="secondary-font tertiary-text">{miembros}</p>
+  <!-- Iteramos sobre la lista de recursos disponibles y generamos un RecursoProyecto por cada uno -->
   <div class="flex seccion-botones gap-16">
     {proyecto.recursos.map((recurso) => <RecursoProyecto recurso={recurso} />)}
   </div>

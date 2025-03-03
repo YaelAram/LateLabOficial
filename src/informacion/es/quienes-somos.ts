@@ -1,5 +1,12 @@
 import type { QuienesSomos } from "@interfaces/types";
 
+/*
+  Esta constante contiene los parrafos de bienvenida a la pagina del laboratorio y un arreglo con los links
+  de contacto.
+
+  Nota: Cada contacto tiene una propiedad llamada "icono" la cual hace referencia a un icono localizado en la
+  carpeta /public/*.
+*/
 export const quienesSomos: QuienesSomos = {
   parrafos: [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin leo vel arcu dapibus tincidunt. Sed tempor ornare volutpat. Curabitur eget nibh dolor. Mauris id semper turpis. Curabitur sit amet ante id massa scelerisque consequat. Fusce in nibh nec elit tempor tincidunt. Maecenas lorem dui, mattis ac augue et, molestie imperdiet mi. Sed eu dapibus metus.",

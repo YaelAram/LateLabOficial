@@ -1,5 +1,14 @@
 import type { Publicacion } from "@interfaces/types";
 
+/*
+  Esta constantes contiene un arreglo con todas las publicaciones realizadas por el laboratorio.
+
+  Nota: El componente encargado de mostrar las publicaciones se encarga de ordenar automaticamente las publicaciones
+  segun el año en que fueron publicadas (descendente) por lo que no es necesario realizar esa tarea manualmente en 
+  este archivo.
+
+  Nota: Cada autor tiene una propiedad llamada "nombre", se sugiere solo incluir el primer nombre y apellido.
+*/
 export const publicaciones: Publicacion[] = [
   {
     id: "1",

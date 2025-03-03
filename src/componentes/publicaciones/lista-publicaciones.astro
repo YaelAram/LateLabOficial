@@ -2,6 +2,13 @@
 import type { Publicacion } from "@interfaces/types";
 import TarjetaPublicacion from "./tarjeta-publicacion.astro";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - periodo: Indica el año en que fueron lanzadas las publiaciones.
+    - publicaciones: Contiene todas las publicaciones lanzadas por el laboratorio en cierto año.
+*/
 interface Props {
   periodo: string;
   publicaciones: Publicacion[];
@@ -9,8 +16,10 @@ interface Props {
 const { publicaciones, periodo } = Astro.props;
 ---
 
+<!-- Creamos un seccion que agrupe todas las publicaciones del laboratorio -->
 <section>
   <h3>{periodo}</h3>
+  <!-- Creamos una subseccion para todas las publicaciones de cierto año -->
   <ul class="lista-tarjetas">
     {
       publicaciones.map((publicacion) => (

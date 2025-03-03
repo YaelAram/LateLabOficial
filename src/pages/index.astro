@@ -1,4 +1,5 @@
 ---
+// Importamos los componentes que construyen la pagina
 import Miembros from "@componentes/miembros/miembros.astro";
 import QuienesSomos from "@componentes/presentacion/quienes-somos.astro";
 import Proyectos from "@componentes/proyectos/proyectos.astro";
@@ -6,12 +7,21 @@ import Publicaciones from "@componentes/publicaciones/publicaciones.astro";
 import ServicioSocial from "@componentes/servicio/servicio-social.astro";
 import Layout from "@layouts/Layout.astro";
 
+// Importamos el objeto que contiene toda la informacion a mostrar
 import { paginaIndex } from "@informacion/es/paginaIndex";
 ---
 
-<Layout {...paginaIndex.metadata}>
+<!-- 
+  Utilizamos el Layout el cual contiene el head de la pagina HTML, carga los estilos globales, contiene el navbar
+  (barra de navegacion) y establece los metatags que ayudan a los bots de Google a indexar nuestra pagina.
+-->
+<Layout metadata={paginaIndex.metadata}>
+  <!-- 
+    Encabezado de bienvenida a la pagina del laboratorio y subtitulo con las instituciones a las que pertenece 
+    el laboratorio
+  -->
   <hgroup>
-    <h1>Laboratorio de Lenguaje y Análisis de Textos</h1>
+    <h1>Bienvenid@ al Laboratorio de Lenguaje y Análisis de Textos</h1>
     <p class="secondary-font">
       <abbr
         title="Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas"
@@ -22,20 +32,32 @@ import { paginaIndex } from "@informacion/es/paginaIndex";
     </p>
   </hgroup>
   <section>
+    <!-- Usamos el componente Quienes-Somos y enviamos la informacion que debe mostrar -->
     <QuienesSomos quienesSomos={paginaIndex.quienesSomos} />
+    <!-- Usamos el componente Miembros y enviamos la informacion que debe mostrar -->
     <Miembros miembros={paginaIndex.miembros} />
   </section>
+  <!-- Usamos el componente ServicioSocial y enviamos la informacion que debe mostrar -->
   <ServicioSocial ofertas={paginaIndex.servicioSocial} />
+  <!--
+    Las ultimas secciones son Publicaciones y Proyectos ya que al tratarse de listas de elementos que
+    con el tiempo van a aumentar en numero es mejor mostrarlas al ultimo para poder mostrar secciones mas pequeñas
+    como ServicioSocial sin que queden relegadas al final de la pagina
+  -->
+  <!-- Usamos el componente Publicaciones y enviamos la informacion que debe mostrar -->
   <Publicaciones publicaciones={paginaIndex.publicaciones} />
+  <!-- Usamos el componente Proyectos y enviamos la informacion que debe mostrar -->
   <Proyectos proyectos={paginaIndex.proyectos} />
 </Layout>
 
 <style>
+  /* Alineamos al centro de la pagina el texto del encabezado de bienvenida */
   hgroup h1,
   hgroup p {
     text-align: center;
   }
 
+  /* Reducimos el especio entre el encabezado de bienvenida y el subtitulo que lo acompaña */
   hgroup h1 {
     margin-bottom: 0;
   }

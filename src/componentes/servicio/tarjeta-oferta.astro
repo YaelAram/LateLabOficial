@@ -1,28 +1,43 @@
 ---
 import type { ServicioSocial } from "@interfaces/types";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - oferta: Contiene la informacion sobre la oferta de servicio social
+*/
 interface Props {
   oferta: ServicioSocial;
 }
 const { oferta } = Astro.props;
 ---
 
+<!-- Creamos la tarjeta de servicio social -->
 <li class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li">
   <hgroup>
+    <!--
+      Creamos un encabezado con el nombre de la oferta, ademas agregamos un enlace que lleva a la pagina
+      oficial de la plataforma SIASSYPP con los detalles de la oferta.
+    -->
     <h3 class="titulo-sin-margen">
       <a href={oferta.url} target="_blank" class="primary-font"
         >{oferta.nombre}</a
       >
     </h3>
+    <!-- Mostramos el eje tematico de la oferta -->
     <p class="accent-font mt-8">{oferta.eje_tematico}</p>
   </hgroup>
   <section>
+    <!-- Mostramos la clave de la oferta de servicio social -->
     <p class="secondary-font mt-8">
       Clave: <strong class="primary-font">{oferta.clave}</strong>
     </p>
+    <!-- Mostramos el objetivo de la oferta de servicio social -->
     <h4 class="titulo-sin-margen">Objetivo</h4>
     <p class="secondary-font mt-8">{oferta.objetivo}</p>
   </section>
+  <!-- Mostramos informacion relevante sobre el encargado de la oferta como su nombre, cargo y correo electronico -->
   <section>
     <h4 class="titulo-sin-margen">Responsable</h4>
     <p class="secondary-font mt-8 mb-0">

@@ -1,46 +1,92 @@
 ---
+/*
+  Importamos el componente NavBar el cual contiene la barra de navegacion de nuestra aplicacion, dado que esta barra se
+  encuentra en todas las paginas de la aplicacion podemos usarla como parte del Layout.
+*/
 import NavBar from "@componentes/navbar.astro";
+import type { Metadata } from "@interfaces/types";
 
+/*
+  En Astro la interfaz Props describe los inputs o entradas que necesita el componente para funcionar correctamente.
+
+  Para el componente Layout, las propiedades recibidas son utilizadas para generar los metatags necesarios para 
+  ayudar los buscadores a indexar nuestra pagina.
+
+  Propiedades:
+    - title: Contiene el titulo de la pagina, se muestra en la pestaña del navegador.
+    - description: Contiene la descripcion de la pagina, dicha descripcion es utilizada por los motores de busqueda y
+    puede ser mostrada debajo del titulo de la pagina cuando realizamos una busqueda.
+    - keywords: Si bien este metatag ha perdido relevancia dentro de los motores de busqueda aun es tomada en cuenta por los
+    motores de busqueda.
+    - image: Contiene la ubicacion de una imagen, dicha imagen es mostrada cuando compartimos un enlace.
+    - language: Contiene el identificador de idioma en formato ISO 639-1, indica al navegador y a los motores de busqueda el 
+    idioma en el que esta escrito el contenido de la pagina.
+*/
 interface Props {
-  title: string;
-  description: string;
-  keywords: string[];
-  image: string;
-  language: string;
+  metadata: Metadata;
 }
-const { title, description, keywords, image, language } = Astro.props;
+const { metadata } = Astro.props;
+const { title, description, keywords, image, language } = metadata;
 ---
 
 <!doctype html>
+<!-- Establecemos el idioma de la pagina -->
 <html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="author" content="IIMAS, UNAM" />
     <meta name="generator" content={Astro.generator} />
+    <!-- Agregamos los metatags con los valores de entrada (inputs) recibidos -->
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(",")} />
     <meta name="og:title" content={title} />
     <meta name="og:image" content={image} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Establecemos el titulo de la pagina -->
     <title>{title}</title>
   </head>
   <body class="surface">
+    <!-- Utilizamos el componente con la barra de navegacion -->
     <NavBar />
+    <!--
+      Slot es un componente especial de Astro, este es reemplazado con el contenido que el Layout envuelva.
+      Adicionalmente con el fin de seguir las reglas del HTML semantico envolvemos el contenido del componente slot
+      con el contenedor main, dicho contenedor le indica al navegador y herramientas de accesibilidad donde esta el 
+      contenido principal de la aplicacion.
+    -->
     <main>
       <slot />
     </main>
   </body>
 </html>
 
+<!-- 
+  En Astro los estilos contenidos en una etiqueta style unicamente tienen efecto en los elementos HTML usados en el
+  componente. Por ejemplo, si aplicamos un estilo a los elementos H1 aqui y algun otro componente utiliza un H1, solo
+  el H1 usado en este componente se vera afectado mientras que el H1 del otro componente permanecera sin cambios.
+-->
 <style>
+  /* 
+    Agregamos espacio entre los limites del contenedor main y su contenido con el fin de evitar que este toque los 
+    bordes de la pantalla o la ventana del navegador.
+  */
   main {
     padding: 64px 48px 32px;
   }
 </style>
 
+<!--
+  Cuando utilizamos el atirbuto is:global le indica a Astro que los estilos contenidos deberan estar disponibles para
+  todos los componentes de la aplicacion.
+-->
 <style is:global>
-  /* Definicion de MononokiNerdFont */
+  /* 
+    Importamos los archivos de fuentes utilizados por la pagina, especificamos que estan en formato WOFF2 (un formato
+    optimizado para paginas web) y establecemos un nombre a la fuente.
+
+    Nota: Los archivos de fuente estan ubicados en la carpeta /public/fonts/*
+  */
   @font-face {
     font-family: "MononokiNerdFontBold";
     src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
@@ -66,17 +112,23 @@ const { title, description, keywords, image, language } = Astro.props;
     font-weight: 400;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "MononokiNerdFontBold", sans-serif;
-    font-display: swap;
-    color: var(--primary-font-color);
-  }
+  /*
+    El siguiente bloque define las variables con los colores utilizados a los largo de la aplicacion. Estos nos permite
+    actualizar facilmente la paleta de colores de la aplicacion en caso de ser necesario ya que solo debemos modicar el valor
+    de estas variables y actualizar la paleta de colores en el modo oscuro.
 
+    Variables:
+      - primary-color: Utilizado en la barra de navegacion y como color para los elementos con borde.
+      - on-primary-font-color: Indica el color del texto situado sobre un elemento cuyo color de fondo sea primary-color.
+      - on-secondary-font-color: Similar a on-primary-font-color, sin embargo, este indica un texto con menor relevancia 
+      o importancia.
+      - surface-color: Contiene el color de fondo de la pagina (excepto la barra de navegacion).
+      - on-surface: Contiene el color de fondo de superficies situadas sobre surface-color, agrega contraste entre el fondo
+      de la pagina y el su contenido.
+      - primary-font-color: Contiene el color del texto que se situa sobre una superficie con el color on-surface.
+      - secondary-font-color: Similar a primary-font-color, pero para textos de menor relevancia.
+      - accent: Utilizado para textos con aun menos relevancia que secondary-font-color.
+  */
   :root {
     --primary-color: #5a2673;
     --on-primary-font-color: #fff;
@@ -89,13 +141,41 @@ const { title, description, keywords, image, language } = Astro.props;
     --accent: #3d2648;
   }
 
+  /* 
+    Establecemos el tipo de fuente negrita a todos los encabezados de la pagina e indicamos el color de fuente.
+    
+    Nota: la propiedad font-display indica que priorice renderizar el texto primero y en cuanto se cargue la fuente
+    aplique la fuente al texto. Se hace por motivos de rendimiento.
+  */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "MononokiNerdFontBold", sans-serif;
+    font-display: swap;
+    color: var(--primary-font-color);
+  }
+
+  /* 
+    Establecemos el tipo de fuente regular al resto del texto de nuestra aplicacion.
+    
+    Nota: la propiedad font-display indica que priorice renderizar el texto primero y en cuanto se cargue la fuente
+    aplique la fuente al texto. Se hace por motivos de rendimiento.
+  */
   body {
     font-family: "MononokiNerdFont", sans-serif;
     font-display: swap;
     margin: 0;
   }
 
-  /* Fondos y Color de Fuente */
+  /*
+    Fondos y Color de Fuente
+
+    Las siguientes clases nos permiten asignar colores de fondo o el color de fuente de los elementos de nuestra
+    aplicacion. Dichas clases utilizan las variables que definimos anteriormente, ademas implican escribir menos codigo.
+  */
   .primary {
     background-color: var(--primary-color);
   }
@@ -128,58 +208,84 @@ const { title, description, keywords, image, language } = Astro.props;
     color: var(--accent);
   }
 
-  /* Clases Helper (Flexbox) */
+  /* 
+    Clases Helper (Flexbox)
+
+    Estas clases nos permiten crear un flexbox, al ser algo usual en el maquetado de nuestra aplicacion estas clases
+    nos permiten centralizar la escritura de dichas propiedades sin tener que escribir una y otra vez el mismo codigo CSS
+    en cada uno de nuestros componentes. En pocas palabras, nos ayudan a reutilizar codigo.
+  */
+
+  /* Crea un flexbox */
   .flex {
     display: flex;
   }
 
+  /* Alinea los elementos de un flexbox al centro en el eje principal */
   .justify-center {
     justify-content: center;
   }
 
+  /* Alinea los elementos al final del eje principal */
   .justify-end {
     justify-content: flex-end;
   }
 
+  /* Alinea los elementos al centro del eje secundario */
   .align-items-center {
     align-items: center;
   }
 
-  /* Tarjetas */
+  /* 
+    Las siguientes clases de CSS contiene los estilos utilizados por los componentes: TarjetaMiembros, TarjetaOferta,
+    TarjetaProyecto y TarjetaPublicacion. Al ser estilos en comun entre estos componentes podemos abstraerlos para 
+    porder reutilizar nuestro codigo.
+  */
   .lista-tarjetas {
     padding: 0;
     list-style: none;
   }
 
+  /* Redondea las puntas de un contenedor */
   .rounded {
     border-radius: 8px;
   }
 
+  /* Modifica el estilo de los bordes de un contenedor, aplica un color solido y una anchura de 2px */
   .outline {
     outline: var(--primary-color) solid 2px;
   }
 
+  /* Aplica un efecto de sombreado dando un efecto de profundidad respecto al dondo */
   .shadow {
     box-shadow:
       rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
 
+  /* Las siguientes clases CSS contienen los estilos para los botones de la aplicacion */
+  /* Cambia el icono del mouse cuando este se encuentra sobre el boton y eliminamos el borde por defecto */
   .boton {
     cursor: pointer;
     border: none;
   }
 
+  /* 
+    Ademas cuando el mouse esta sobre el boton aplicamos un efecto de opacidad y aumentamos ligeramente el tamaño 
+    del boton
+  */
   .boton:hover {
     opacity: 0.7;
     scale: 1.04;
   }
 
+  /* Cuando el boton esta siendo pulsado, aumentamos aun mas la opacidad pero reducimos su tamaño */
   .boton:active {
     scale: 0.96;
     opacity: 0.5;
   }
 
+  /* Esta clase contiene los estilos necesarios para crear un outline button con texto y un icono */
   .boton-texto-icono {
     display: flex;
     align-items: center;
@@ -194,32 +300,45 @@ const { title, description, keywords, image, language } = Astro.props;
     padding: 8px 16px;
   }
 
+  /* Nos ayuda a definir el estilo de texto terciario (de menor relevancia que el texto secundario) */
   .tertiary-text {
     font-size: small;
     font-style: italic;
   }
 
+  /* Agrega espacio entre las tarjetas */
   .tarjeta-gap {
     margin-bottom: 24px;
   }
 
+  /* 
+    Contiene los estilos del contenedor de botones dentro de una tarjeta, permite que estos se reacomoden segun el
+    espacio disponible en pantalla
+  */
   .seccion-botones {
     margin-top: 24px;
     flex-wrap: wrap;
     justify-content: flex-end;
   }
 
+  /* Eliminamos el subrayado que viene por defecto en la etiqueta A */
+  .no-text-decoration {
+    text-decoration: none;
+  }
+
+  /* Elimina el margen de los encabezados de las tarjetas */
   .titulo-sin-margen {
     margin: 0;
   }
 
+  /* Asigna un ancho maximo para las tarjetas en pantallas grandes */
   @media screen and (width > 1024px) {
     .tarjeta-li {
       width: 85vw;
     }
   }
 
-  /* Espaciado */
+  /* Las siguientes clases nos permite agregar espacio entre los elementos de la aplciacion */
   .mt-32 {
     margin-top: 32px;
   }
@@ -244,6 +363,10 @@ const { title, description, keywords, image, language } = Astro.props;
     margin-top: 8px;
   }
 
+  /*
+    El siguiente media query detecta si el sistema operativo del usuario esta configurado con el tema oscura y en caso de
+    estarlo reasigna los valores de algunas variables para ajustarse al tema oscuro de la aplicacion
+  */
   @media (prefers-color-scheme: dark) {
     :root {
       --surface-color: #111;

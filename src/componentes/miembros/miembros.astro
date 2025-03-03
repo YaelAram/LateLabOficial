@@ -2,24 +2,49 @@
 import type { Miembro } from "@interfaces/types";
 import ListaMiembros from "./lista-miembros.astro";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - miembros: Contiene la lista de todos los miembros del laboratorio.
+*/
 interface Props {
   miembros: Miembro[];
 }
 
+// Obtenemos la lista de miembros de las entradas del componente
 const { miembros } = Astro.props;
+// Categorizamos cada miembros segun su estatus (academico, alumno o exalumno)
 const miembrosPorCargo = Object.entries(
   Object.groupBy(miembros, ({ estatus }) => estatus),
 ).toSorted((m1, m2) => m1[0].localeCompare(m2[0]));
 
-const obtenerTitulo = (cargo: string) => {
+/**
+ * Esta funcion se encarga de obtener el titulo de la seccion segun el estatus del grupo de miembros
+ * estatus "academico" -> "Academicos"
+ * estatus "alumno" -> "Alumnos"
+ * estatus "exalumno" -> "Ex Alumnos"
+ * @param { string } cargo Indica el estatus de los miembros de una lista
+ * @returns { string } Contiene el titulo adecuado para la seccion
+ */
+const obtenerTitulo = (cargo: string): string => {
   if (cargo === "academico") return "Acedémicos";
   else if (cargo === "alumno") return "Alumnos";
   return "Ex Alumnos";
 };
 ---
 
+<!-- Creamos un seccion principal la cual contendra a las demas secciones con los miembros categorizados por estatus -->
 <section class="mt-32">
   <h2 id="miembros">Miembros</h2>
+  <!-- 
+    Iteramos sobre el Map con las listas de miembros categorizadas por estatus, donde como clave contiene
+    el estatus (academico, alumno o exalumno) y como valor el arreglo de todos los miembros cuyo estatus
+    sea el mismo que la clave.
+
+    Enviamos al componente ListaMiembros el titulo que debe poner a la seccion (generado a traves de la funcion
+    obtenerTitulo) y la lista de miembros a mostrar
+  -->
   {
     miembrosPorCargo.map(([cargo, miembros]) => {
       return (

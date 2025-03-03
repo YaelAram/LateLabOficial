@@ -1,15 +1,32 @@
 ---
 import type { Contacto } from "@interfaces/types";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - contacto: Contiene la informacion de contacto del laboratorio.
+*/
 interface Props {
   contacto: Contacto;
 }
 const { contacto } = Astro.props;
+/*
+  Dependiendo del tipo de contacto creamos un link diferente, si es un correo electronico creamos un link capaz
+  de abrir la aplicacion de correo del usuario en caso contrario retornamos el link sin modificaciones.
+*/
 const url =
   contacto.tipo === "url" ? contacto.contacto : `mailto:${contacto.contacto}`;
 ---
 
-<a href={url} target="_blank" title={contacto.descripcion} class="boton">
+<!-- Creamos un link con el url generado y establecemos que se muestre en una nueva pestaña del navegador. -->
+<a
+  href={url}
+  target="_blank"
+  title={contacto.descripcion}
+  class="boton no-text-decoration"
+>
+  <!-- Creamos una imagen con el icono recibido por las entradas del componente. -->
   <img
     src={contacto.icono}
     alt={contacto.descripcion}
@@ -18,9 +35,3 @@ const url =
     loading="eager"
   />
 </a>
-
-<style>
-  a {
-    text-decoration: none;
-  }
-</style>

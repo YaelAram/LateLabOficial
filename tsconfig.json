@@ -11,6 +11,7 @@
       "@layouts/*": ["./layouts/*"],
       "@interfaces/*": ["./interfaces/*"],
       "@eventos/*": ["./eventos/*"]
-    }
+    },
+    "removeComments": true
   }
 }

@@ -1,29 +1,49 @@
 ---
 import type { Publicacion } from "@interfaces/types";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - publicacion: Contiene la informacion de la publicacion a mostrar
+*/
 interface Props {
   publicacion: Publicacion;
 }
 
 const { publicacion } = Astro.props;
 const { autores, pdf, tematicas, titulo, id } = publicacion;
+
+/*
+  Creamos un formateador de lista el cual convierte un arreglo en un string cada uno separado por una coma "," excepto
+  el penultimo y ultimo elementos separados por el texto " y ", por ejemplo, la lista ["A", "B", "C"] es transformada a
+  "A, B, y C".
+*/
 const formatoLista = new Intl.ListFormat("es", {
   type: "conjunction",
   style: "short",
 });
 ---
 
+<!-- Creamos la tarjeta que contendra la informacion de la publicacion -->
 <li class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li">
   <hgroup>
+    <!-- Creamos un link al pdf de la publicacion y mostramos el nombre de la publicacion -->
     <h4 class="titulo-sin-margen">
       <a href={pdf} class="primary-font">{titulo}</a>
     </h4>
+    <!-- Mostramos la lista de autores de la publicacion -->
     <p class="accent-font mt-8">
       {formatoLista.format(autores.map(({ nombre }) => nombre))}
     </p>
   </hgroup>
+  <!-- Muestra una pequeña lista con palabras clave o tematicas tratadas por la publicacion -->
   <p class="secondary-font tertiary-text">{formatoLista.format(tematicas)}</p>
   <div class="flex seccion-botones gap-16">
+    <!--
+      Boton para crear una cita en formato APA, los atributos data-id y data-formato le dan informacion a la funcion
+      que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
+    -->
     <button
       type="button"
       class="boton boton-texto-icono shadow"
@@ -39,6 +59,10 @@ const formatoLista = new Intl.ListFormat("es", {
         height={24}
       />
     </button>
+    <!--
+      Boton para crear una cita en formato IEEE, los atributos data-id y data-formato le dan informacion a la funcion
+      que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
+    -->
     <button
       type="button"
       class="boton boton-texto-icono shadow"
@@ -54,6 +78,10 @@ const formatoLista = new Intl.ListFormat("es", {
         height={24}
       />
     </button>
+    <!--
+      Boton para crear una cita en formato BibTeX, los atributos data-id y data-formato le dan informacion a la funcion
+      que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
+    -->
     <button
       type="button"
       class="boton boton-texto-icono shadow"
@@ -75,6 +103,13 @@ const formatoLista = new Intl.ListFormat("es", {
 <script>
   import { citarPublicacion } from "@eventos/citar-publicacion";
 
+  /*
+    Obtenemos la referencia todos los botones que contengan el atributo data-formato, es decir, todos los botones de las tajetas
+    que sirvan para crear una cita.
+
+    Los iteramos y adjuntamos a ellos un listener para el evento click. La funcion citarPublicacion se encarga de obtener
+    la informacion de la publicacion, generar la cita en el formato solicitado y copiar en el portapapeles del usuario.
+  */
   document
     .querySelectorAll<HTMLButtonElement>(".boton-texto-icono[data-formato]")
     .forEach((boton) =>

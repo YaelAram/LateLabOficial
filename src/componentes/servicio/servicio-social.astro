@@ -2,14 +2,22 @@
 import type { ServicioSocial } from "@interfaces/types";
 import TarjetaOferta from "./tarjeta-oferta.astro";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+   Propiedades:
+    - ofertas: Contiene la informacion de todas las ofertas del servicio social dentro del laboratorio.
+*/
 interface Props {
   ofertas: ServicioSocial[];
 }
 const { ofertas } = Astro.props;
 ---
 
+<!-- Creamos una seccion para las ofertas de trabajo social -->
 <section class="mt-32">
   <h2 id="servicio-social">Servicio Social</h2>
+  <!-- Iteramos sobre cada una de las ofertas y les generamos una tarjeta -->
   <ul class="lista-tarjetas">
     {ofertas.map((oferta) => <TarjetaOferta oferta={oferta} />)}
   </ul>

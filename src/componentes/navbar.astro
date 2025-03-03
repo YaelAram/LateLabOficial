@@ -1,5 +1,10 @@
+<!-- 
+  Creamos un contenedor header el cual contiene nuestra barra de navegacion, nombre y logo oficial del laboratorio.
+-->
 <header class="primary">
+  <!-- Creamos un contenedor div que unicamente sirve para asignar algunos estilos -->
   <div class="flex align-items-center">
+    <!-- Mostramos el icono para abrir el menu lateral (pantallas de dispositivos moviles) -->
     <button popovertarget="vertical-nav" type="button" class="primary">
       <img
         src="/menu.svg"
@@ -9,8 +14,8 @@
         loading="eager"
       />
     </button>
+    <!-- Creamos un enlace a nuestra pagina pincipal con el logo y nombre del laboratorio -->
     <a href="/" title="Ir a página principal" class="flex align-items-center">
-      <span class="on-primary-font">LateLab</span>
       <img
         src="/logo_laboratorio.svg"
         alt="Logo del Laboratorio de Lenguaje y Análisis de Textos"
@@ -18,17 +23,21 @@
         height={32}
         loading="eager"
       />
+      <span class="on-primary-font">LateLab</span>
     </a>
   </div>
 
+  <!-- Creamos el menu de navegacion lateral (Dispositivos moviles) -->
   <nav popover="auto" id="vertical-nav" class="on-surface">
     <div class="flex justify-end">
+      <!-- Agregamos un boton que nos permita cerrar el menu lateral -->
       <button
         popovertarget="vertical-nav"
         type="button"
         aria-label="Close Menu"
         class="primary"
       >
+        <!-- Agregamos un icono con una X -->
         <img
           src="/close.svg"
           alt="Icono de cierre del menú de navegación"
@@ -38,7 +47,9 @@
         />
       </button>
     </div>
+    <!-- Creamos nuestro menu de navegacion -->
     <menu>
+      <!-- Cada uno de los elemento li apunta a una de las diferentes secciones de nuestra aplicacion -->
       <li>
         <a href="/#quienes-somos" class="secondary-font">¿Quiénes somos?</a>
       </li>
@@ -53,8 +64,11 @@
     </menu>
   </nav>
 
+  <!-- Creamos el menu de navegacion horizontal (Dispositivos de escritorio) -->
   <nav id="horizontal-nav">
+    <!-- Creamos nuestro menu de navegacion -->
     <menu class="flex justify-end">
+      <!-- Cada uno de los elemento li apunta a una de las diferentes secciones de nuestra aplicacion -->
       <li>
         <a href="/#quienes-somos" class="on-secondary-font">¿Quiénes somos?</a>
       </li>

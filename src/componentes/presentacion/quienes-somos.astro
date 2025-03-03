@@ -1,19 +1,39 @@
 ---
 import { Image } from "astro:assets";
 
-import Bienvenida from "@assets/bienvenida_laboratorio.jpg";
 import type { QuienesSomos } from "@interfaces/types";
 import Contacto from "./contacto.astro";
+// Importamos la imagen de bienvenida desde la carpeta /src/assets/
+import Bienvenida from "@assets/bienvenida_laboratorio.jpg";
 
+/*
+  Definimos las entradas o inputs del componente.
+
+  Propiedades:
+    - quienesSomos: Contiene los parrafos de bienvenida al usuario y la informacion de contacto del laboratorio.
+*/
 interface Props {
   quienesSomos: QuienesSomos;
 }
 const { quienesSomos } = Astro.props;
 ---
 
+<!--
+  Creamos una seccion con toda la informacion de beinvenida/presentacion mas la informacion de contacto. En HTML semantico
+  un bloque article indica un bloque de informacion con sentido propio pero relacionado al contenido del resto de la pagina.
+-->
 <article>
+  <!-- Creamos un titulo para la seccion -->
   <h2 id="quienes-somos">¿Quiénes somos?</h2>
   <div>
+    <!--
+      Utilizando el componente Image de Astro logramos las siguientes mejoras:
+        - Forza el uso de buenas practicas, el desarrollador debe indicar las dimensiones de la imagen y dar una 
+          breve descripcion sobre la misma en caso de que la imagen no pueda ser cargada.
+        - Transforma el formato de la imagen a original a uno mas ligero y apto para la web en este caso AVIF.
+        - Con las propiedades widths y sizes podemos generar imagenes optimizadas segun el tamaño de pantalla del 
+          dispositivo del usuario mejorando los tiempos de carga de la aplicacion.
+    -->
     <Image
       src={Bienvenida}
       alt="Imagen con los integrantes del laboratorio"
@@ -22,12 +42,14 @@ const { quienesSomos } = Astro.props;
       sizes="(max-width: 600px) 480px, (max-width: 900px) 720px, (max-width: 1300px) 1024px, 1600px"
       format="avif"
     />
+    <!-- Mostramos los parrafos de bienvenida -->
     <div>
       {
         quienesSomos.parrafos.map((parrafo) => (
           <p class="primary-font">{parrafo}</p>
         ))
       }
+      <!-- Creamos la seccion con los contactos del laboratorio -->
       <h3>Contactanos</h3>
       <address class="flex gap-16">
         {
@@ -41,20 +63,33 @@ const { quienesSomos } = Astro.props;
 </article>
 
 <style>
+  /*
+    Agregamos algunos estilos sobre los parrafos para limitar su anchura maxima y balancear la cantidad de 
+    texto en cada una de las lineas del parrafo.
+  */
   p {
     text-wrap: balance;
     max-width: 90ch;
   }
 
+  /* 
+    Aumentamos el ancho de la iamgen para que ocupe todo el espacio del contenedor, aproximadamente la mitad de 
+    la pantalla en dispositivos grandes o todo el ancho de la pantalla en dispositivos pequeños como telefonos.
+  */
   img {
     width: 100%;
     height: auto;
   }
 
+  /* Eliminamos el margen inferior del encabezado Contactos */
   h3 {
     margin-bottom: 8px;
   }
 
+  /*
+    Este media query es el encargado de dividir en dos el ancho de la pantalla cuando esta tiene 920 pixeles o mas
+    de ancho, en caso contrario no existe division y los elementos pasan a ocupar la totalidad del ancho de la pantalla.
+  */
   @media screen and (width >= 920px) {
     article > div {
       display: grid;

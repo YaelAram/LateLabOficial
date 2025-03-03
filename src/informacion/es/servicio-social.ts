@@ -1,5 +1,12 @@
 import type { ServicioSocial } from "@interfaces/types";
 
+/*
+  Esta constante contiene un arreglo con todas las ofertas de servicio social disponibles para trabajar dentro
+  del laboratorio.
+
+  Nota: El atributo "url" debe apuntar a la pagina con la informacion detallada de la oferta publicada en la plataforma
+  oficial de la UNAM (SIASSYPP).
+*/
 export const servicioSocial: ServicioSocial[] = [
   {
     nombre: "Machine learning para procesamiento de lenguaje natural",
