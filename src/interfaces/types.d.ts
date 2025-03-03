@@ -230,3 +230,13 @@ export interface Metadata {
   image: string;
   language: string;
 }
+
+export interface PaginaInfo {
+  metadata: Metadata;
+  miembros: Miembro[];
+  quienesSomos: QuienesSomos;
+  proyectos: Proyecto[];
+  publicaciones: Publicacion[];
+  servicioSocial: ServicioSocial[];
+  bienvenida: string;
+}
