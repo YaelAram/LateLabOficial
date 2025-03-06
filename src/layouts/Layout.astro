@@ -275,14 +275,16 @@ const { title, description, keywords, image, language } = metadata;
     del boton
   */
   .boton:hover {
-    opacity: 0.7;
+    opacity: 0.8;
     scale: 1.04;
+    transition: scale 0.1s ease-in;
   }
 
   /* Cuando el boton esta siendo pulsado, aumentamos aun mas la opacidad pero reducimos su tamaño */
   .boton:active {
     scale: 0.96;
-    opacity: 0.5;
+    opacity: 0.6;
+    transition: scale 0.25s ease-out;
   }
 
   /* Esta clase contiene los estilos necesarios para crear un outline button con texto y un icono */
@@ -294,10 +296,17 @@ const { title, description, keywords, image, language } = metadata;
     color: var(--primary-font-color);
     font-weight: 700;
 
-    outline: var(--primary-color) solid 2px;
+    outline: var(--primary-color) solid 1px;
     border-radius: 8px;
-    background-color: transparent;
+    background-color: var(--surface-color);
     padding: 8px 16px;
+
+    transition: background-color 0.1s ease-in;
+  }
+
+  .boton-texto-icono:hover {
+    background-color: var(--primary-color);
+    transition: background-color 0.25s ease-out;
   }
 
   /* Nos ayuda a definir el estilo de texto terciario (de menor relevancia que el texto secundario) */
@@ -374,6 +383,12 @@ const { title, description, keywords, image, language } = metadata;
       --primary-font-color: #fff;
       --secondary-font-color: #888;
       --accent: #b979d7;
+    }
+
+    .shadow {
+      box-shadow:
+        rgb(101 66 117 / 0.18) 0px 10px 20px,
+        rgb(101 66 117 / 0.22) 0px 6px 6px;
     }
   }
 </style>
