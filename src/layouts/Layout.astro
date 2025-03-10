@@ -72,7 +72,13 @@ const { title, description, keywords, image, language } = metadata;
     bordes de la pantalla o la ventana del navegador.
   */
   main {
-    padding: 64px 48px 32px;
+    padding: 64px 32px 32px;
+  }
+
+  @media screen and (width > 720px) {
+    main {
+      padding: 64px 48px 32px;
+    }
   }
 </style>
 
