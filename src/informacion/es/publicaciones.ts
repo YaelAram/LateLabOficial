@@ -43,7 +43,8 @@ export const publicaciones: Publicacion[] = [
         pages: "5--6",
         volume: "28"
       }
-    }
+    },
+    abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin leo vel arcu dapibus tincidunt. Sed tempor ornare volutpat. Curabitur eget nibh dolor. Mauris id semper turpis. Curabitur sit amet ante id massa scelerisque consequat. Fusce in nibh nec elit tempor tincidunt. Maecenas lorem dui, mattis ac augue et, molestie imperdiet mi. Sed eu dapibus metus."
   },
   {
     id: "2",
@@ -76,6 +77,7 @@ export const publicaciones: Publicacion[] = [
         pages: "7--9",
       },
     },
+    abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin leo vel arcu dapibus tincidunt. Sed tempor ornare volutpat. Curabitur eget nibh dolor. Mauris id semper turpis. Curabitur sit amet ante id massa scelerisque consequat. Fusce in nibh nec elit tempor tincidunt. Maecenas lorem dui, mattis ac augue et, molestie imperdiet mi. Sed eu dapibus metus."
   },
   {
     id: "3",
@@ -110,7 +112,8 @@ export const publicaciones: Publicacion[] = [
         pages: "50--60",
         volume: "30"
       }
-    }
+    },
+    abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin leo vel arcu dapibus tincidunt. Sed tempor ornare volutpat. Curabitur eget nibh dolor. Mauris id semper turpis. Curabitur sit amet ante id massa scelerisque consequat. Fusce in nibh nec elit tempor tincidunt. Maecenas lorem dui, mattis ac augue et, molestie imperdiet mi. Sed eu dapibus metus."
   },
   {
     id: "4",
@@ -142,6 +145,7 @@ export const publicaciones: Publicacion[] = [
         book: "The Second Fake book",
         pages: "70--90",
       },
-    }
+    },
+    abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin leo vel arcu dapibus tincidunt. Sed tempor ornare volutpat. Curabitur eget nibh dolor. Mauris id semper turpis. Curabitur sit amet ante id massa scelerisque consequat. Fusce in nibh nec elit tempor tincidunt. Maecenas lorem dui, mattis ac augue et, molestie imperdiet mi. Sed eu dapibus metus."
   },
 ];

@@ -99,6 +99,7 @@ export interface Publicacion {
   lugar: string;
   institucion: string;
   bibtex: { tipo: "article"; data: BibtexArticle; } | { tipo: "inproceedings", data: BibtextInproceedings; };
+  abstract: string;
 };
 
 /*

@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { publicacion } = Astro.props;
-const { autores, pdf, tematicas, titulo, id } = publicacion;
+const { autores, pdf, tematicas, titulo, id, periodo, abstract } = publicacion;
 
 /*
   Creamos un formateador de lista el cual convierte un arreglo en un string cada uno separado por una coma "," excepto
@@ -26,19 +26,46 @@ const formatoLista = new Intl.ListFormat("es", {
 ---
 
 <!-- Creamos la tarjeta que contendra la informacion de la publicacion -->
-<li class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li">
-  <hgroup>
-    <!-- Creamos un link al pdf de la publicacion y mostramos el nombre de la publicacion -->
-    <h4 class="titulo-sin-margen">
+<details
+  name="publicaciones"
+  class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li"
+>
+  <summary class="flex space-between">
+    <h3 class="titulo-sin-margen">
       <a href={pdf} class="primary-font">{titulo}</a>
+      <span class="accent-font">({periodo})</span>
+    </h3>
+  </summary>
+  <section>
+    <h4
+      class="mb-0 accent-font"
+      aria-label={"Autores de la publicación " + titulo}
+    >
+      Autores
     </h4>
-    <!-- Mostramos la lista de autores de la publicacion -->
-    <p class="accent-font mt-8">
+    <p class="primary-font mt-8">
       {formatoLista.format(autores.map(({ nombre }) => nombre))}
     </p>
-  </hgroup>
-  <!-- Muestra una pequeña lista con palabras clave o tematicas tratadas por la publicacion -->
-  <p class="secondary-font tertiary-text">{formatoLista.format(tematicas)}</p>
+  </section>
+  <section>
+    <h4
+      class="mb-0 accent-font"
+      aria-label={"Temáticas de la publicación " + titulo}
+    >
+      Temáticas
+    </h4>
+    <!-- Muestra una pequeña lista con palabras clave o tematicas tratadas por la publicacion -->
+    <p class="primary-font mt-8">{formatoLista.format(tematicas)}</p>
+  </section>
+  <section>
+    <h4
+      class="mb-0 accent-font"
+      aria-label={"Abstract de la publicación " + titulo}
+    >
+      Abstract
+    </h4>
+    <p class="primary-font mt-8">{abstract}</p>
+  </section>
   <div class="flex seccion-botones gap-16">
     <!--
       Boton para crear una cita en formato APA, los atributos data-id y data-formato le dan informacion a la funcion
@@ -98,7 +125,25 @@ const formatoLista = new Intl.ListFormat("es", {
       />
     </button>
   </div>
-</li>
+</details>
+
+<style>
+  summary {
+    cursor: pointer;
+  }
+
+  summary::after {
+    content: url("/open_details.svg");
+    width: 24px;
+    height: 24px;
+  }
+
+  details[open] summary::after {
+    content: url("/close_details.svg");
+    width: 24px;
+    height: 24px;
+  }
+</style>
 
 <script>
   import { citarPublicacion } from "@eventos/citar-publicacion";

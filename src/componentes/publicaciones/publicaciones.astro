@@ -1,6 +1,6 @@
 ---
 import type { Publicacion } from "@interfaces/types";
-import ListaPublicaciones from "./lista-publicaciones.astro";
+import TarjetaPublicacion from "./tarjeta-publicacion.astro";
 
 /*
   Definimos las entradas o inputs del componente.
@@ -20,23 +20,23 @@ const { publicaciones } = Astro.props;
 const publicacionesPorPeriodo = Object.entries(
   Object.groupBy(publicaciones, ({ periodo }) => periodo),
 ).toSorted((p1, p2) => p2[0].localeCompare(p1[0]));
+const publicacionesPorAntiguedad = publicaciones.toSorted(
+  (p1, p2) => p2.periodo - p1.periodo,
+);
 ---
 
 <!-- Creamos una seccion para contener todas las publicaciones del laboratorio  -->
-<section>
+<section class="mt-48">
   <h2 id="publicaciones">Publicaciones</h2>
   <!-- Creamos una subseccion para cada lista de publicaciones segun su año de publicacion -->
   <div>
-    {
-      publicacionesPorPeriodo.map(([periodo, publicaciones]) => {
-        return (
-          <ListaPublicaciones
-            periodo={periodo}
-            publicaciones={publicaciones!}
-          />
-        );
-      })
-    }
+    <section>
+      {
+        publicacionesPorAntiguedad.map((publicacion) => (
+          <TarjetaPublicacion publicacion={publicacion} />
+        ))
+      }
+    </section>
   </div>
 </section>
 
