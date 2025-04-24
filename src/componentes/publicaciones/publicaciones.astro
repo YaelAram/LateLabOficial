@@ -32,8 +32,8 @@ const publicacionesPorAntiguedad = publicaciones.toSorted(
   <div>
     <section>
       {
-        publicacionesPorAntiguedad.map((publicacion) => (
-          <TarjetaPublicacion publicacion={publicacion} />
+        publicacionesPorAntiguedad.map((publicacion, index) => (
+          <TarjetaPublicacion publicacion={publicacion} abierta={index === 0} />
         ))
       }
     </section>

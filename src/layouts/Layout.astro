@@ -43,6 +43,10 @@ const { title, description, keywords, image, language } = metadata;
     <meta name="og:title" content={title} />
     <meta name="og:image" content={image} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Establecemos el titulo de la pagina -->
     <title>{title}</title>
   </head>
@@ -87,37 +91,6 @@ const { title, description, keywords, image, language } = metadata;
   todos los componentes de la aplicacion.
 -->
 <style is:global>
-  /* 
-    Importamos los archivos de fuentes utilizados por la pagina, especificamos que estan en formato WOFF2 (un formato
-    optimizado para paginas web) y establecemos un nombre a la fuente.
-
-    Nota: Los archivos de fuente estan ubicados en la carpeta /public/fonts/*
-  */
-  @font-face {
-    font-family: "MononokiNerdFontBold";
-    src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
-    font-weight: bold;
-  }
-
-  @font-face {
-    font-family: "MononokiNerdFontBoldItalic";
-    src: url("/fonts/MononokiNerdFont-BoldItalic.woff2") format("woff2");
-    font-weight: bold;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: "MononokiNerdFontItalic";
-    src: url("/fonts/MononokiNerdFont-Italic.woff2") format("woff2");
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: "MononokiNerdFont";
-    src: url("/fonts/MononokiNerdFont-Regular.woff2") format("woff2");
-    font-weight: 400;
-  }
-
   /*
     El siguiente bloque define las variables con los colores utilizados a los largo de la aplicacion. Estos nos permite
     actualizar facilmente la paleta de colores de la aplicacion en caso de ser necesario ya que solo debemos modicar el valor
@@ -140,10 +113,10 @@ const { title, description, keywords, image, language } = metadata;
     --on-primary-font-color: #fff;
     --on-secondary-font-color: #dcdcdc;
 
-    --surface-color: #e8d7f0;
+    --surface-color: #fff;
     --on-surface: #fff;
     --primary-font-color: #000;
-    --secondary-font-color: #222;
+    --secondary-font-color: #111;
     --accent: #3d2648;
   }
 
@@ -153,7 +126,7 @@ const { title, description, keywords, image, language } = metadata;
     Nota: la propiedad font-display indica que priorice renderizar el texto primero y en cuanto se cargue la fuente
     aplique la fuente al texto. Se hace por motivos de rendimiento.
   */
-  h1,
+  /* h1,
   h2,
   h3,
   h4,
@@ -161,6 +134,14 @@ const { title, description, keywords, image, language } = metadata;
   h6 {
     font-family: "MononokiNerdFontBold", sans-serif;
     font-display: swap;
+    color: var(--primary-font-color);
+  } */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: var(--primary-font-color);
   }
 
@@ -170,10 +151,16 @@ const { title, description, keywords, image, language } = metadata;
     Nota: la propiedad font-display indica que priorice renderizar el texto primero y en cuanto se cargue la fuente
     aplique la fuente al texto. Se hace por motivos de rendimiento.
   */
-  body {
+  /* body {
     font-family: "MononokiNerdFont", sans-serif;
     font-display: swap;
     margin: 0;
+  } */
+  body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    word-spacing: 1px;
   }
 
   /*
@@ -264,13 +251,6 @@ const { title, description, keywords, image, language } = metadata;
   /* Modifica el estilo de los bordes de un contenedor, aplica un color solido y una anchura de 2px */
   .outline {
     outline: var(--primary-color) solid 2px;
-  }
-
-  /* Aplica un efecto de sombreado dando un efecto de profundidad respecto al dondo */
-  .shadow {
-    box-shadow:
-      rgba(0, 0, 0, 0.19) 0px 10px 20px,
-      rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
 
   /* Las siguientes clases CSS contienen los estilos para los botones de la aplicacion */
@@ -399,14 +379,8 @@ const { title, description, keywords, image, language } = metadata;
       --surface-color: #111;
       --on-surface: #000;
       --primary-font-color: #fff;
-      --secondary-font-color: #888;
+      --secondary-font-color: #aaa;
       --accent: #b979d7;
-    }
-
-    .shadow {
-      box-shadow:
-        rgb(101 66 117 / 0.18) 0px 10px 20px,
-        rgb(101 66 117 / 0.22) 0px 6px 6px;
     }
   }
 </style>

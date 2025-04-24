@@ -26,7 +26,7 @@ const { inicio, fin } = periodo;
     <!-- Como titulo mostramos el nombre del miembro -->
     <h4 class="titulo-sin-margen">{nombre}</h4>
     <!-- Como subtitulo mostramos el cargo que desempeño durante su estancia en el laboratorio -->
-    <p class="accent-font mt-8">{puesto}</p>
+    <p class="accent-font mt-8 semi-bold">{puesto}</p>
   </hgroup>
   <p class="secondary-font tertiary-text mb-0">
     <!-- 
@@ -42,5 +42,9 @@ const { inicio, fin } = periodo;
   /* Aumentamos ligeramente el tamaño de fuente del encabezado que contiene el nombre del miembro */
   hgroup > h4 {
     font-size: large;
+  }
+
+  .semi-bold {
+    font-weight: 600;
   }
 </style>

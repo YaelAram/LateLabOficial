@@ -26,7 +26,7 @@ const { oferta } = Astro.props;
       >
     </h3>
     <!-- Mostramos el eje tematico de la oferta -->
-    <p class="accent-font mt-8">{oferta.eje_tematico}</p>
+    <p class="accent-font mt-8 semi-bold">{oferta.eje_tematico}</p>
   </hgroup>
   <section>
     <!-- Mostramos la clave de la oferta de servicio social -->
@@ -35,12 +35,12 @@ const { oferta } = Astro.props;
     </p>
     <!-- Mostramos el objetivo de la oferta de servicio social -->
     <h4 class="titulo-sin-margen">Objetivo</h4>
-    <p class="secondary-font mt-8">{oferta.objetivo}</p>
+    <p class="primary-font mt-8">{oferta.objetivo}</p>
   </section>
   <!-- Mostramos informacion relevante sobre el encargado de la oferta como su nombre, cargo y correo electronico -->
   <section>
     <h4 class="titulo-sin-margen">Responsable</h4>
-    <p class="secondary-font mt-8 mb-0">
+    <p class="primary-font mt-8 mb-0">
       {oferta.responsable.cargo}
       {oferta.responsable.nombre}
     </p>
@@ -49,3 +49,9 @@ const { oferta } = Astro.props;
     </p>
   </section>
 </li>
+
+<style>
+  .semi-bold {
+    font-weight: 600;
+  }
+</style>

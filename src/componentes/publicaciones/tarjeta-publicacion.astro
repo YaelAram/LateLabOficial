@@ -9,9 +9,10 @@ import type { Publicacion } from "@interfaces/types";
 */
 interface Props {
   publicacion: Publicacion;
+  abierta: boolean;
 }
 
-const { publicacion } = Astro.props;
+const { publicacion, abierta } = Astro.props;
 const { autores, pdf, tematicas, titulo, id, periodo, abstract } = publicacion;
 
 /*
@@ -29,6 +30,7 @@ const formatoLista = new Intl.ListFormat("es", {
 <details
   name="publicaciones"
   class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li"
+  open={abierta}
 >
   <summary class="flex space-between gap-16">
     <h3 class="titulo-sin-margen">
@@ -50,21 +52,21 @@ const formatoLista = new Intl.ListFormat("es", {
   <section>
     <h4
       class="mb-0 accent-font"
-      aria-label={"Temáticas de la publicación " + titulo}
-    >
-      Temáticas
-    </h4>
-    <!-- Muestra una pequeña lista con palabras clave o tematicas tratadas por la publicacion -->
-    <p class="primary-font mt-8">{formatoLista.format(tematicas)}</p>
-  </section>
-  <section>
-    <h4
-      class="mb-0 accent-font"
       aria-label={"Abstract de la publicación " + titulo}
     >
       Abstract
     </h4>
     <p class="primary-font mt-8">{abstract}</p>
+  </section>
+  <section>
+    <h4
+      class="mb-0 accent-font"
+      aria-label={"Temáticas de la publicación " + titulo}
+    >
+      Temáticas
+    </h4>
+    <!-- Muestra una pequeña lista con palabras clave o tematicas tratadas por la publicacion -->
+    <p class="secondary-font mt-8">{formatoLista.format(tematicas)}</p>
   </section>
   <div class="flex seccion-botones gap-16">
     <!--
@@ -142,6 +144,10 @@ const formatoLista = new Intl.ListFormat("es", {
     content: url("/close_details.svg");
     width: 24px;
     height: 24px;
+  }
+
+  p {
+    font-weight: 500;
   }
 </style>
 

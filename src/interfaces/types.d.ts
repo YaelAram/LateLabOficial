@@ -1,4 +1,80 @@
 /*
+  Esta interfaz describe el tipo de dato PaginaInfo contiene la informacion necesaria para generar la pagina principal.
+
+  Propiedades:
+    - metadata: Contiene la informacion con los metadatos de la pagina que ayudan a mejorar el SEO.
+    - bienvenida: Contiene el mensaje de bienvenida a la pagina del laboratorio.
+    - quienesSomos: Contiene los parrafos de introduccion al laboratorio, ademas contiene los metodos del contacto
+      del laboratorio.
+    - miembros: Contiene la lista de los miembros actuales y pasados del laboratorio.
+    - servicioSocial: Contiene las ofertas de servicio social para trabajar dentro del laboratorio.
+    - proyectos: Contiene la informacion de los proyectos desarrollados por el laboratorio.
+    - publicaciones: Contiene la informacion de las publicaciones realizadas por el laboratorio.
+*/
+export interface PaginaInfo {
+  metadata: Metadata;
+  bienvenida: string;
+  quienesSomos: QuienesSomos;
+  miembros: Miembro[];
+  servicioSocial: ServicioSocial[];
+  proyectos: Proyecto[];
+  publicaciones: Publicacion[];
+}
+
+/*
+  Esta interfaz describe el tipo de dato Metadata contiene la informacion necesaria para generar los metatags que ayudan a
+  los buscadores a indexar nuestra paginas.
+
+  Propiedades:
+    - title: Contiene el titulo de la pagina (el que se muestra en la pestaña del navegador).
+    - description: Contiene una breve descripcion sobre el contenido de la pagina.
+    - keywords: Contiene un arreglo de strings, cada string debe contener una palabra clave que describa el contenido 
+      de la pagina.
+    - image: Indica la ruta a la imagen que debe mostrarse junto al link. Es usual ver esta imagen cuando compartimos
+      el link de una pagina a traves de una red social.
+    - language: Indica el idioma en el que esta escrito el contenido de la pagina en formato 639-1.
+*/
+export interface Metadata {
+  title: string;
+  description: string;
+  keywords: string[];
+  image: string;
+  language: string;
+}
+
+/*
+  Esta interfaz describe el tipo de dato QuienesSomos utilizado por el componente del mismo nombre, contiene los 
+  parrafos de texto que dan la bienvenida al usuario a la pagina oficial del laboratorio y una lista con los 
+  metodos de contacto mas comunes.
+
+  Propiedades:
+    - parrafos: Contienen los parrafos de bienvenida y una breve descripcion sobre el laboratorio y que se lleva a cabo en el.
+      Se sugiere no utilizar mas de dos parrafos.
+    - contactos: Contiene metodos de contacto.
+*/
+export interface QuienesSomos {
+  parrafos: string[];
+  contactos: Contacto[];
+}
+
+/*
+  Esta interfaz describe el tipo de dato Contacto contiene informacion sobre el icono y enlace de contacto.
+
+  Propiedades:
+    - icono: Contiene el link al icono a utilizar.
+    - descripcion: Contiene una breve descripcion sobre a donde lleva el enlace.
+    - tipo: Indica el tipo de contacto, si es "corre" crea un link que abrira automaticamente el app de correo electronico
+      del usuario, caso contrario abre el link en una nueva pestaña del navegador.
+    - contacto: Contiene el link de contacto.
+*/
+export interface Contacto {
+  icono: string;
+  descripcion: string;
+  tipo: "url" | "correo";
+  contacto: string;
+}
+
+/*
   Esta interfaz describe el tipo de dato Miembro el cual es utilizado por el componente TarjetaMiembro, contiene la 
   informacion basica sobre un integrante del laboratorio.
 
@@ -30,6 +106,34 @@ export interface Miembro {
     }
   };
 };
+
+/*
+  Esta interfaz describe el tipo de dato ServicioSocial utilizado por el componente TarjetaOferta contiene la
+  informacion basica sobre una oferta de servicio social dentro del laboratorio.
+
+  Propiedades:
+    - nombre: Contiene el nombre de la oferta.
+    - clave: Contiene la clave utilizada para dar de alta el servicio social dentro del sistema de la UNAM.
+    - objetivo: Indica el objetivo a desarrollar durante la durancion del servicio social.
+    - eje_tematico: Contiene el eje tematico de la oferta.
+    - url: Contiene el link a la plataforma SIASSYPP con la informacion detallada de la oferta.
+    - responsable: Contiene informacion basica sobre el principal responsable de la oferta de servicio social.
+      - nombre: Indica el nombre de la persona a cargo de la oferta.
+      - cargo: Indica el cargo de la persona encargada dentro de la institucion.
+      - email: Contiene el correo electronico de la persona encargada.
+*/
+export interface ServicioSocial {
+  nombre: string;
+  responsable: {
+    nombre: string;
+    cargo: string;
+    email: string;
+  };
+  clave: string;
+  objetivo: string;
+  eje_tematico: string;
+  url: string;
+}
 
 /*
   Esta interfaz describe el tipo de dato Proyecto el cual es utilizado por el componente TarjetaProyecto, contiene la 
@@ -149,95 +253,4 @@ export interface BibtexArticle {
 export interface BibtextInproceedings {
   book: string;
   pages: string;
-}
-
-/*
-  Esta interfaz describe el tipo de dato ServicioSocial utilizado por el componente TarjetaOferta contiene la
-  informacion basica sobre una oferta de servicio social dentro del laboratorio.
-
-  Propiedades:
-    - nombre: Contiene el nombre de la oferta.
-    - clave: Contiene la clave utilizada para dar de alta el servicio social dentro del sistema de la UNAM.
-    - objetivo: Indica el objetivo a desarrollar durante la durancion del servicio social.
-    - eje_tematico: Contiene el eje tematico de la oferta.
-    - url: Contiene el link a la plataforma SIASSYPP con la informacion detallada de la oferta.
-    - responsable: Contiene informacion basica sobre el principal responsable de la oferta de servicio social.
-      - nombre: Indica el nombre de la persona a cargo de la oferta.
-      - cargo: Indica el cargo de la persona encargada dentro de la institucion.
-      - email: Contiene el correo electronico de la persona encargada.
-*/
-export interface ServicioSocial {
-  nombre: string;
-  responsable: {
-    nombre: string;
-    cargo: string;
-    email: string;
-  };
-  clave: string;
-  objetivo: string;
-  eje_tematico: string;
-  url: string;
-}
-
-/*
-  Esta interfaz describe el tipo de dato QuienesSomos utilizado por el componente del mismo nombre, contiene los 
-  parrafos de texto que dan la bienvenida al usuario a la pagina oficial del laboratorio y una lista con los 
-  metodos de contacto mas comunes.
-
-  Propiedades:
-    - parrafos: Contienen los parrafos de bienvenida y una breve descripcion sobre el laboratorio y que se lleva a cabo en el.
-      Se sugiere no utilizar mas de dos parrafos.
-    - contactos: Contiene metodos de contacto.
-*/
-export interface QuienesSomos {
-  parrafos: string[];
-  contactos: Contacto[];
-}
-
-/*
-  Esta interfaz describe el tipo de dato Contacto contiene informacion sobre el icono y enlace de contacto.
-
-  Propiedades:
-    - icono: Contiene el link al icono a utilizar.
-    - descripcion: Contiene una breve descripcion sobre a donde lleva el enlace.
-    - tipo: Indica el tipo de contacto, si es "corre" crea un link que abrira automaticamente el app de correo electronico
-      del usuario, caso contrario abre el link en una nueva pestaña del navegador.
-    - contacto: Contiene el link de contacto.
-*/
-export interface Contacto {
-  icono: string;
-  descripcion: string;
-  tipo: "url" | "correo";
-  contacto: string;
-}
-
-/*
-  Esta interfaz describe el tipo de dato Metadata contiene la informacion necesaria para generar los metatags que ayudan a
-  los buscadores a indexar nuestra paginas.
-
-  Propiedades:
-    - title: Contiene el titulo de la pagina (el que se muestra en la pestaña del navegador).
-    - description: Contiene una breve descripcion sobre el contenido de la pagina.
-    - keywords: Contiene un arreglo de strings, cada string debe contener una palabra clave que describa el contenido 
-      de la pagina.
-    - image: Indica la ruta a la imagen que debe mostrarse junto al link. Es usual ver esta imagen cuando compartimos
-      el link de una pagina a traves de una red social.
-    - language: Indica el idioma en el que esta escrito el contenido de la pagina en formato 639-1.
-*/
-export interface Metadata {
-  title: string;
-  description: string;
-  keywords: string[];
-  image: string;
-  language: string;
-}
-
-export interface PaginaInfo {
-  metadata: Metadata;
-  miembros: Miembro[];
-  quienesSomos: QuienesSomos;
-  proyectos: Proyecto[];
-  publicaciones: Publicacion[];
-  servicioSocial: ServicioSocial[];
-  bienvenida: string;
 }
