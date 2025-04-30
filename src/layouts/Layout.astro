@@ -3,6 +3,7 @@
   Importamos el componente NavBar el cual contiene la barra de navegacion de nuestra aplicacion, dado que esta barra se
   encuentra en todas las paginas de la aplicacion podemos usarla como parte del Layout.
 */
+import Footer from "@componentes/footer/footer.astro";
 import NavBar from "@componentes/navbar.astro";
 import type { Metadata } from "@interfaces/types";
 
@@ -62,6 +63,7 @@ const { title, description, keywords, image, language } = metadata;
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
 
@@ -120,22 +122,20 @@ const { title, description, keywords, image, language } = metadata;
     --accent: #3d2648;
   }
 
+  @font-face {
+    font-family: "MononokiNerdFontBold";
+    src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
   /* 
     Establecemos el tipo de fuente negrita a todos los encabezados de la pagina e indicamos el color de fuente.
     
     Nota: la propiedad font-display indica que priorice renderizar el texto primero y en cuanto se cargue la fuente
     aplique la fuente al texto. Se hace por motivos de rendimiento.
   */
-  /* h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "MononokiNerdFontBold", sans-serif;
-    font-display: swap;
-    color: var(--primary-font-color);
-  } */
   h1,
   h2,
   h3,
@@ -143,6 +143,13 @@ const { title, description, keywords, image, language } = metadata;
   h5,
   h6 {
     color: var(--primary-font-color);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "MononokiNerdFontBold", sans-serif;
+    font-display: swap;
   }
 
   /* 
@@ -161,6 +168,8 @@ const { title, description, keywords, image, language } = metadata;
     font-family: "Montserrat", sans-serif;
     letter-spacing: 1px;
     word-spacing: 1px;
+    height: 100vh;
+    width: 100vw;
   }
 
   /*
@@ -212,6 +221,10 @@ const { title, description, keywords, image, language } = metadata;
   /* Crea un flexbox */
   .flex {
     display: flex;
+  }
+
+  .flex-column {
+    flex-direction: column;
   }
 
   /* Alinea los elementos de un flexbox al centro en el eje principal */
@@ -354,12 +367,20 @@ const { title, description, keywords, image, language } = metadata;
     padding: 16px;
   }
 
+  .p-40-72 {
+    padding: 40px 72px;
+  }
+
   .p-8-16 {
     padding: 8px 16px;
   }
 
   .gap-16 {
     gap: 16px;
+  }
+
+  .gap-32 {
+    gap: 32px;
   }
 
   .mb-0 {
