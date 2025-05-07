@@ -298,11 +298,12 @@ const { title, description, keywords, image, language } = metadata;
 
     color: var(--primary-font-color);
     font-weight: 700;
+    font-size: medium;
 
     outline: var(--primary-color) solid 1px;
     border-radius: 8px;
     background-color: var(--surface-color);
-    padding: 8px 16px;
+    padding: 12px 16px;
 
     transition: background-color 0.1s ease-in;
   }
@@ -341,13 +342,6 @@ const { title, description, keywords, image, language } = metadata;
   /* Elimina el margen de los encabezados de las tarjetas */
   .titulo-sin-margen {
     margin: 0;
-  }
-
-  /* Asigna un ancho maximo para las tarjetas en pantallas grandes */
-  @media screen and (width > 1024px) {
-    .tarjeta-li {
-      width: 85vw;
-    }
   }
 
   /* Las siguientes clases nos permite agregar espacio entre los elementos de la aplciacion */

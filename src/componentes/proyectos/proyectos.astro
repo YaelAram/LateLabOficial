@@ -31,3 +31,23 @@ const proyectoPorAntiguedad = proyectos.toSorted(
     }
   </ul>
 </section>
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media screen and (width > 750px) {
+    ul {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (width > 1150px) {
+    ul {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>

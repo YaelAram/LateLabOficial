@@ -96,5 +96,15 @@ const { quienesSomos } = Astro.props;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
     }
+
+    img {
+      align-self: center;
+    }
+  }
+
+  @media screen and (width >= 1080px) {
+    article > div {
+      grid-template-columns: 2fr 3fr;
+    }
   }
 </style>

@@ -42,15 +42,10 @@ import { paginaIndex } from "@informacion/es/paginaIndex";
   </section>
   <!-- Usamos el componente ServicioSocial y enviamos la informacion que debe mostrar -->
   <ServicioSocial ofertas={paginaIndex.servicioSocial} />
-  <!--
-    Las ultimas secciones son Publicaciones y Proyectos ya que al tratarse de listas de elementos que
-    con el tiempo van a aumentar en numero es mejor mostrarlas al ultimo para poder mostrar secciones mas pequeñas
-    como ServicioSocial sin que queden relegadas al final de la pagina
-  -->
-  <!-- Usamos el componente Publicaciones y enviamos la informacion que debe mostrar -->
-  <Publicaciones publicaciones={paginaIndex.publicaciones} />
   <!-- Usamos el componente Proyectos y enviamos la informacion que debe mostrar -->
   <Proyectos proyectos={paginaIndex.proyectos} />
+  <!-- Usamos el componente Publicaciones y enviamos la informacion que debe mostrar -->
+  <Publicaciones publicaciones={paginaIndex.publicaciones} />
 </Layout>
 
 <style>

@@ -21,8 +21,7 @@ const { recurso } = Astro.props;
   class="no-text-decoration"
 >
   <!-- Mostramos un boton con la descripcion y un icono relacionado al recurso -->
-  <button type="button" class="boton boton-texto-icono shadow">
-    {recurso.nombre}
+  <button type="button" class="boton boton-texto-icono shadow justify-center">
     <img
       src={recurso.icono}
       alt={recurso.descripcion}
@@ -30,5 +29,12 @@ const { recurso } = Astro.props;
       width={24}
       height={24}
     />
+    {recurso.nombre}
   </button>
 </a>
+
+<style>
+  button {
+    width: 100%;
+  }
+</style>

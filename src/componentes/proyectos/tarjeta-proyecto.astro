@@ -25,7 +25,7 @@ const miembros = new Intl.ListFormat("es", {
 ---
 
 <!-- Creamos una nueva tarjeta -->
-<li class="rounded outline on-surface shadow p-16 tarjeta-gap tarjeta-li">
+<li class="rounded outline on-surface shadow p-16">
   <!-- Mostramos el nombre del poryecto y el año en que fue desarrollado -->
   <h3 class="titulo-sin-margen">
     {proyecto.nombre}
@@ -36,7 +36,33 @@ const miembros = new Intl.ListFormat("es", {
   <!-- Mostramos los miembros del equipo de desarrollo del proyecto -->
   <p class="secondary-font tertiary-text">{miembros}</p>
   <!-- Iteramos sobre la lista de recursos disponibles y generamos un RecursoProyecto por cada uno -->
-  <div class="flex seccion-botones gap-16">
+  <div class="flex gap-16">
     {proyecto.recursos.map((recurso) => <RecursoProyecto recurso={recurso} />)}
   </div>
 </li>
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media screen and (width > 600px) {
+    div {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (width > 750px) {
+    div {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (width > 900px) {
+    div {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
