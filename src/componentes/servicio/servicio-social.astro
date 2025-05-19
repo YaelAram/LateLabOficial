@@ -15,10 +15,40 @@ const { ofertas } = Astro.props;
 ---
 
 <!-- Creamos una seccion para las ofertas de trabajo social -->
-<section class="mt-16">
+<section class="mt-16 section-p-sides">
   <h2 id="servicio-social">Servicio Social</h2>
   <!-- Iteramos sobre cada una de las ofertas y les generamos una tarjeta -->
-  <ul class="lista-tarjetas">
+  <div>
     {ofertas.map((oferta) => <TarjetaOferta oferta={oferta} />)}
-  </ul>
+  </div>
 </section>
+
+<style>
+  section {
+    background-color: #4f1c51;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  hr {
+    background-color: var(--secondary-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    section {
+      background-color: #7e4585a5;
+    }
+  }
+</style>

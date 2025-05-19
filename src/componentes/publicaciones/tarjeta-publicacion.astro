@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { publicacion, abierta } = Astro.props;
-const { autores, pdf, tematicas, titulo, id, periodo, abstract } = publicacion;
+const { autores, pdf, titulo, id, periodo, abstract } = publicacion;
 
 /*
   Creamos un formateador de lista el cual convierte un arreglo en un string cada uno separado por una coma "," excepto
@@ -57,16 +57,6 @@ const formatoLista = new Intl.ListFormat("es", {
       Abstract
     </h4>
     <p class="primary-font mt-8">{abstract}</p>
-  </section>
-  <section>
-    <h4
-      class="mb-0 accent-font"
-      aria-label={"Temáticas de la publicación " + titulo}
-    >
-      Temáticas
-    </h4>
-    <!-- Muestra una pequeña lista con palabras clave o tematicas tratadas por la publicacion -->
-    <p class="secondary-font mt-8">{formatoLista.format(tematicas)}</p>
   </section>
   <div class="flex seccion-botones gap-16">
     <!--

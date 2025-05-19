@@ -35,3 +35,15 @@ const url =
     loading="eager"
   />
 </a>
+
+<style>
+  a:hover {
+    filter: drop-shadow(0 0 8px rgb(37, 37, 37));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a:hover {
+      filter: drop-shadow(0 0 8px rgb(152, 152, 152));
+    }
+  }
+</style>

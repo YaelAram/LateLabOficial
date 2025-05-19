@@ -130,7 +130,6 @@ export interface ServicioSocial {
     email: string;
   };
   clave: string;
-  objetivo: string;
   eje_tematico: string;
   url: string;
 }
@@ -185,7 +184,6 @@ export interface Recurso {
     - titulo: Contiene el titulo de la publicacion.
     - autores: Contiene un arreglo con la informacion de todos los autores de la publiacion.
     - pdf: Contiene el link a la publiacion.
-    - tematicas: Es un arreglo de strings con palabras clave sobre la publicacion o temas cubiertos.
     - periodo: Indica el año en el que fue publicado.
     - tipo: Indica el tipo de publicacion, si es un trabajo de grado, una tesis, tesina, etc.
     - lugar: Indica el lugar de publicacion.
@@ -197,7 +195,6 @@ export interface Publicacion {
   titulo: string;
   autores: Autor[];
   pdf: string;
-  tematicas: string[];
   periodo: number;
   tipo: "Trabajo de grado" | "Tesis de maestría" | "Tesis doctoral";
   lugar: string;

@@ -33,45 +33,16 @@ const { titulo, miembros } = Astro.props;
 </section>
 
 <style>
-  /* 
-    Si el ancho de la pantalla es mayor a 480px creamos una cuadricula (grid o grilla) con dos columnas y un espacio
-    entre filas y columnas de 16px. Las tarjetas se ordenan en dos columnas y tantas filas sean necesarias.
-  */
+  h3 {
+    text-align: center;
+  }
+
   @media screen and (width >= 400px) {
     div {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 16px;
-    }
-  }
-
-  /* 
-    Si el ancho de la pantalla es mayor a 700px creamos una cuadricula (grid o grilla) con tres columnas. Las tarjetas 
-    se ordenan en tres columnas y tantas filas sean necesarias.
-  */
-  @media screen and (width >= 700px) {
-    div {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* 
-    Si el ancho de la pantalla es mayor a 920px creamos una cuadricula (grid o grilla) con cuatro columnas. Las tarjetas 
-    se ordenan en cuatro columnas y tantas filas sean necesarias.
-  */
-  @media screen and (width >= 920px) {
-    div {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  /* 
-    Si el ancho de la pantalla es mayor a 1200px creamos una cuadricula (grid o grilla) con seis columnas. Las tarjetas 
-    se ordenan en seis columnas y tantas filas sean necesarias.
-  */
-  @media screen and (width >= 1200px) {
-    div {
-      grid-template-columns: repeat(6, 1fr);
     }
   }
 </style>

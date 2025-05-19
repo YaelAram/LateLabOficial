@@ -21,7 +21,7 @@ const { inicio, fin } = periodo;
 <!--
   Creamos una tarjeta con los bordes redondeados, contorno, efecto de sombra, etc
 -->
-<article class="rounded on-surface shadow outline p-8-16 tarjeta-gap gap-16">
+<article class="rounded on-surface outline p-8-16 tarjeta-gap gap-16">
   <hgroup>
     <!-- Como titulo mostramos el nombre del miembro -->
     <h4 class="titulo-sin-margen">{nombre}</h4>
@@ -46,5 +46,14 @@ const { inicio, fin } = periodo;
 
   .semi-bold {
     font-weight: 600;
+  }
+
+  article {
+    transition: scale 0.1s ease-in;
+  }
+
+  article:hover {
+    scale: 104%;
+    transition: scale 0.1s ease-in;
   }
 </style>

@@ -14,7 +14,7 @@ const { oferta } = Astro.props;
 ---
 
 <!-- Creamos la tarjeta de servicio social -->
-<li class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li">
+<article>
   <hgroup>
     <!--
       Creamos un encabezado con el nombre de la oferta, ademas agregamos un enlace que lleva a la pagina
@@ -26,16 +26,13 @@ const { oferta } = Astro.props;
       >
     </h3>
     <!-- Mostramos el eje tematico de la oferta -->
-    <p class="accent-font mt-8 semi-bold">{oferta.eje_tematico}</p>
+    <p class="primary-font mt-8 semi-bold">{oferta.eje_tematico}</p>
   </hgroup>
   <section>
     <!-- Mostramos la clave de la oferta de servicio social -->
-    <p class="secondary-font mt-8">
+    <p class="primary-font mt-8">
       Clave: <strong class="primary-font">{oferta.clave}</strong>
     </p>
-    <!-- Mostramos el objetivo de la oferta de servicio social -->
-    <h4 class="titulo-sin-margen">Objetivo</h4>
-    <p class="primary-font mt-8">{oferta.objetivo}</p>
   </section>
   <!-- Mostramos informacion relevante sobre el encargado de la oferta como su nombre, cargo y correo electronico -->
   <section>
@@ -44,13 +41,24 @@ const { oferta } = Astro.props;
       {oferta.responsable.cargo}
       {oferta.responsable.nombre}
     </p>
-    <p class="secondary-font mt-8">
-      Contacto: <strong class="primary-font">{oferta.responsable.email}</strong>
+    <p class="primary-font mt-8">
+      <strong class="primary-font">{oferta.responsable.email}</strong>
     </p>
   </section>
-</li>
+</article>
 
 <style>
+  h3,
+  h4,
+  p {
+    text-align: center;
+  }
+
+  h3,
+  strong {
+    color: var(--secondary-color);
+  }
+
   .semi-bold {
     font-weight: 600;
   }
