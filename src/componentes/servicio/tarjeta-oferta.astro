@@ -9,21 +9,30 @@ import type { ServicioSocial } from "@interfaces/types";
 */
 interface Props {
   oferta: ServicioSocial;
+  index: number;
 }
-const { oferta } = Astro.props;
+const { oferta, index } = Astro.props;
 ---
 
 <!-- Creamos la tarjeta de servicio social -->
 <article>
-  <hgroup>
+  <div class="flex justify-center">
+    <img
+      src={`/offer_no_${index}.svg`}
+      alt={`Oferta de Servicio Social número ${index}`}
+      width={48}
+      height={48}
+    />
+  </div>
+  <hgroup class="mt-16">
     <!--
       Creamos un encabezado con el nombre de la oferta, ademas agregamos un enlace que lleva a la pagina
       oficial de la plataforma SIASSYPP con los detalles de la oferta.
     -->
     <h3 class="titulo-sin-margen">
-      <a href={oferta.url} target="_blank" class="primary-font"
-        >{oferta.nombre}</a
-      >
+      <a href={oferta.url} target="_blank" class="primary-font">
+        {oferta.nombre}
+      </a>
     </h3>
     <!-- Mostramos el eje tematico de la oferta -->
     <p class="primary-font mt-8 semi-bold">{oferta.eje_tematico}</p>
@@ -31,18 +40,18 @@ const { oferta } = Astro.props;
   <section>
     <!-- Mostramos la clave de la oferta de servicio social -->
     <p class="primary-font mt-8">
-      Clave: <strong class="primary-font">{oferta.clave}</strong>
+      Clave: <strong>{oferta.clave}</strong>
     </p>
   </section>
   <!-- Mostramos informacion relevante sobre el encargado de la oferta como su nombre, cargo y correo electronico -->
   <section>
-    <h4 class="titulo-sin-margen">Responsable</h4>
+    <h4 class="titulo-sin-margen titulo">Responsable</h4>
     <p class="primary-font mt-8 mb-0">
       {oferta.responsable.cargo}
       {oferta.responsable.nombre}
     </p>
     <p class="primary-font mt-8">
-      <strong class="primary-font">{oferta.responsable.email}</strong>
+      <strong>{oferta.responsable.email}</strong>
     </p>
   </section>
 </article>
@@ -54,7 +63,11 @@ const { oferta } = Astro.props;
     text-align: center;
   }
 
-  h3,
+  .primary-font,
+  .titulo {
+    color: white !important;
+  }
+
   strong {
     color: var(--secondary-color);
   }

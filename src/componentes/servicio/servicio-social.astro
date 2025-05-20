@@ -19,7 +19,11 @@ const { ofertas } = Astro.props;
   <h2 id="servicio-social">Servicio Social</h2>
   <!-- Iteramos sobre cada una de las ofertas y les generamos una tarjeta -->
   <div>
-    {ofertas.map((oferta) => <TarjetaOferta oferta={oferta} />)}
+    {
+      ofertas.map((oferta, index) => (
+        <TarjetaOferta oferta={oferta} index={index + 1} />
+      ))
+    }
   </div>
 </section>
 
@@ -48,7 +52,7 @@ const { ofertas } = Astro.props;
 
   @media (prefers-color-scheme: dark) {
     section {
-      background-color: #7e4585a5;
+      background-color: #623368a5;
     }
   }
 </style>
