@@ -78,7 +78,7 @@ const { title, description, keywords, image, language } = metadata;
     bordes de la pantalla o la ventana del navegador.
   */
   main {
-    padding: 64px 0 32px;
+    padding: 64px 0 0;
     scroll-margin-top: 80px;
   }
 </style>
@@ -146,7 +146,7 @@ const { title, description, keywords, image, language } = metadata;
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(150px);
+      transform: translateY(100px);
     }
 
     to {
@@ -159,6 +159,18 @@ const { title, description, keywords, image, language } = metadata;
   @media screen and (width > 750px) {
     .content-section {
       animation-range: entry 2% cover 40%;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(250px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 
