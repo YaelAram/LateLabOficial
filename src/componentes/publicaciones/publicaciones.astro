@@ -26,23 +26,30 @@ const publicacionesPorAntiguedad = publicaciones.toSorted(
 ---
 
 <!-- Creamos una seccion para contener todas las publicaciones del laboratorio  -->
-<section class="mt-48 section-p-sides">
-  <h2 id="publicaciones">Publicaciones</h2>
+<section class="mt-48 section-p-sides content-section" id="publicaciones">
+  <h2>Publicaciones</h2>
   <!-- Creamos una subseccion para cada lista de publicaciones segun su año de publicacion -->
-  <div>
-    <section>
-      {
-        publicacionesPorAntiguedad.map((publicacion, index) => (
-          <TarjetaPublicacion publicacion={publicacion} abierta={index === 0} />
-        ))
-      }
-    </section>
-  </div>
+  {
+    publicacionesPorAntiguedad.map((publicacion) => (
+      <TarjetaPublicacion publicacion={publicacion} />
+    ))
+  }
 </section>
 
-<!-- <style>
-  div {
-    height: 60vh;
-    overflow: auto;
+<style>
+  h2 {
+    color: white;
   }
-</style> -->
+
+  section {
+    background-color: #4f1c51;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    section {
+      background-color: #623368a5;
+    }
+  }
+</style>

@@ -79,12 +79,7 @@ const { title, description, keywords, image, language } = metadata;
   */
   main {
     padding: 64px 0 32px;
-  }
-
-  @media screen and (width > 720px) {
-    main {
-      padding: 64px 0 32px;
-    }
+    scroll-margin-top: 80px;
   }
 </style>
 
@@ -123,12 +118,48 @@ const { title, description, keywords, image, language } = metadata;
     --accent: #3d2648;
   }
 
+  /* Importamos la fuente personalizada del Laboratorio */
   @font-face {
     font-family: "MononokiNerdFontBold";
     src: url("/fonts/MononokiNerdFont-Bold.woff2") format("woff2");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
+  }
+
+  /* 
+    Agregamos espacio al scroll con el fin de evitar que el navbar oculte el titulo de la seccion durante la navegacion.
+    Ademas agregamos una animacion para mostrar las secciones de la pagina.
+  */
+  .content-section {
+    scroll-margin-top: 88px;
+
+    view-timeline-name: --reveal;
+    animation-name: fade-in;
+    animation-fill-mode: both;
+
+    animation-timeline: --reveal;
+    animation-range: entry 1% cover 10%;
+  }
+
+  /* Definimos la animacion para introducir cada seccion */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(150px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Modificamos los parametros de la animacion para pantallas grandes */
+  @media screen and (width > 750px) {
+    .content-section {
+      animation-range: entry 2% cover 40%;
+    }
   }
 
   /* 
@@ -146,12 +177,14 @@ const { title, description, keywords, image, language } = metadata;
     color: var(--primary-font-color);
   }
 
-  hgroup h1,
-  hgroup p,
-  h2 {
+  /* Centramos el titulo de la pagina (los que contienen el mensaje de bienvenida) */
+  main > hgroup h1,
+  main > hgroup p,
+  main h2 {
     text-align: center;
   }
 
+  /* Hacemos que los titulos h1 - h3 usen la fuente personalizada del laboratorio */
   h1,
   h2,
   h3 {

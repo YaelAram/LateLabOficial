@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 
 import type { QuienesSomos } from "@interfaces/types";
 import Contacto from "./contacto.astro";
+
 // Importamos la imagen de bienvenida desde la carpeta /src/assets/
 import Bienvenida from "@assets/bienvenida_laboratorio.jpg";
 
@@ -22,9 +23,9 @@ const { quienesSomos } = Astro.props;
   Creamos una seccion con toda la informacion de beinvenida/presentacion mas la informacion de contacto. En HTML semantico
   un bloque article indica un bloque de informacion con sentido propio pero relacionado al contenido del resto de la pagina.
 -->
-<article class="section-p-sides">
+<article class="section-p-sides content-section" id="quienes-somos">
   <!-- Creamos un titulo para la seccion -->
-  <h2 id="quienes-somos">¿Quiénes somos?</h2>
+  <h2>¿Quiénes somos?</h2>
   <div>
     <!--
       Utilizando el componente Image de Astro logramos las siguientes mejoras:
@@ -41,6 +42,7 @@ const { quienesSomos } = Astro.props;
       widths={[480, 720, 1024, 1600]}
       sizes="(max-width: 600px) 480px, (max-width: 900px) 720px, (max-width: 1300px) 1024px, 1600px"
       format="avif"
+      class="rounded"
     />
     <!-- Mostramos los parrafos de bienvenida -->
     <div>

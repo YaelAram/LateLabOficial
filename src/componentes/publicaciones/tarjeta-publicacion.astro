@@ -9,28 +9,16 @@ import type { Publicacion } from "@interfaces/types";
 */
 interface Props {
   publicacion: Publicacion;
-  abierta: boolean;
 }
 
-const { publicacion, abierta } = Astro.props;
-const { autores, pdf, titulo, id, periodo, abstract } = publicacion;
-
-/*
-  Creamos un formateador de lista el cual convierte un arreglo en un string cada uno separado por una coma "," excepto
-  el penultimo y ultimo elementos separados por el texto " y ", por ejemplo, la lista ["A", "B", "C"] es transformada a
-  "A, B, y C".
-*/
-const formatoLista = new Intl.ListFormat("es", {
-  type: "conjunction",
-  style: "short",
-});
+const { publicacion } = Astro.props;
+const { pdf, titulo, id, periodo, abstract } = publicacion;
 ---
 
 <!-- Creamos la tarjeta que contendra la informacion de la publicacion -->
 <details
   name="publicaciones"
-  class="rounded on-surface shadow outline p-16 tarjeta-gap tarjeta-li"
-  open={abierta}
+  class="rounded on-surface p-16 tarjeta-gap tarjeta-li"
 >
   <summary class="flex space-between gap-16">
     <h3 class="titulo-sin-margen">
@@ -38,84 +26,67 @@ const formatoLista = new Intl.ListFormat("es", {
       <span class="accent-font">({periodo})</span>
     </h3>
   </summary>
-  <section>
-    <h4
-      class="mb-0 accent-font"
-      aria-label={"Autores de la publicación " + titulo}
-    >
-      Autores
-    </h4>
-    <p class="primary-font mt-8">
-      {formatoLista.format(autores.map(({ nombre }) => nombre))}
-    </p>
-  </section>
-  <section>
-    <h4
-      class="mb-0 accent-font"
-      aria-label={"Abstract de la publicación " + titulo}
-    >
-      Abstract
-    </h4>
+  <div class="details-content">
     <p class="primary-font mt-8">{abstract}</p>
-  </section>
-  <div class="flex seccion-botones gap-16">
-    <!--
-      Boton para crear una cita en formato APA, los atributos data-id y data-formato le dan informacion a la funcion
-      que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
-    -->
-    <button
-      type="button"
-      class="boton boton-texto-icono shadow"
-      data-id={id}
-      data-formato="apa"
-    >
-      Citar (APA)
-      <img
-        src="/copy.svg"
-        alt="Copiar cita en formato APA"
-        loading="lazy"
-        width={24}
-        height={24}
-      />
-    </button>
-    <!--
-      Boton para crear una cita en formato IEEE, los atributos data-id y data-formato le dan informacion a la funcion
-      que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
-    -->
-    <button
-      type="button"
-      class="boton boton-texto-icono shadow"
-      data-id={id}
-      data-formato="ieee"
-    >
-      Citar (IEEE)
-      <img
-        src="/copy.svg"
-        alt="Copiar cita en formato IEEE"
-        loading="lazy"
-        width={24}
-        height={24}
-      />
-    </button>
-    <!--
-      Boton para crear una cita en formato BibTeX, los atributos data-id y data-formato le dan informacion a la funcion
-      que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
-    -->
-    <button
-      type="button"
-      class="boton boton-texto-icono shadow"
-      data-id={id}
-      data-formato="bibtex"
-    >
-      Citar (BibTeX)
-      <img
-        src="/copy.svg"
-        alt="Copiar cita en formato BibTeX"
-        loading="lazy"
-        width={24}
-        height={24}
-      />
-    </button>
+    <div class="flex seccion-botones gap-16">
+      <!--
+        Boton para crear una cita en formato APA, los atributos data-id y data-formato le dan informacion a la funcion
+        que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
+      -->
+      <button
+        type="button"
+        class="boton boton-texto-icono shadow"
+        data-id={id}
+        data-formato="apa"
+      >
+        Citar (APA)
+        <img
+          src="/copy.svg"
+          alt="Copiar cita en formato APA"
+          loading="lazy"
+          width={24}
+          height={24}
+        />
+      </button>
+      <!--
+        Boton para crear una cita en formato IEEE, los atributos data-id y data-formato le dan informacion a la funcion
+        que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
+      -->
+      <button
+        type="button"
+        class="boton boton-texto-icono shadow"
+        data-id={id}
+        data-formato="ieee"
+      >
+        Citar (IEEE)
+        <img
+          src="/copy.svg"
+          alt="Copiar cita en formato IEEE"
+          loading="lazy"
+          width={24}
+          height={24}
+        />
+      </button>
+      <!--
+        Boton para crear una cita en formato BibTeX, los atributos data-id y data-formato le dan informacion a la funcion
+        que maneja el evento click sobre la publicacion que el usuario desea citar y el formato de la cita
+      -->
+      <button
+        type="button"
+        class="boton boton-texto-icono shadow"
+        data-id={id}
+        data-formato="bibtex"
+      >
+        Citar (BibTeX)
+        <img
+          src="/copy.svg"
+          alt="Copiar cita en formato BibTeX"
+          loading="lazy"
+          width={24}
+          height={24}
+        />
+      </button>
+    </div>
   </div>
 </details>
 
@@ -134,10 +105,6 @@ const formatoLista = new Intl.ListFormat("es", {
     content: url("/close_details.svg");
     width: 24px;
     height: 24px;
-  }
-
-  p {
-    font-weight: 500;
   }
 </style>
 
