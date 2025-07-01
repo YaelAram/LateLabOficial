@@ -16,243 +16,243 @@ import type { Miembro } from '@interfaces/types';
 */
 export const miembros: Miembro[] = [
   {
-    nombre: "Juan Pérez",
-    puesto: "Maestro",
+    nombre: "Helena Adorno",
     estatus: "academico",
+    puesto: "Investigadora Titula A",
     periodo: {
       inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
+        formatoISO: "2020-01-01",
+        formatoHumano: "Enero, 2020"
       },
       fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
       }
     }
   },
   {
-    nombre: "Juan Pérez",
-    puesto: "Maestro",
+    nombre: "Ethan Sanchez",
+    estatus: "alumno",
+    puesto: "Estudiante",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-01-13",
+        formatoHumano: "Enero, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Arturo Barzalobre Geronimo",
+    estatus: "exalumno",
+    puesto: "Servicio social",
+    periodo: {
+      inicio: {
+        formatoISO: "2022-08-20",
+        formatoHumano: "Agosto, 2022"
+      },
+      fin: {
+        formatoISO: "2023-03-01",
+        formatoHumano: "2023-03-01"
+      }
+    }
+  },
+  {
+    nombre: "Andric Valdez",
+    estatus: "alumno",
+    puesto: "Estudiante Doctorado",
+    periodo: {
+      inicio: {
+        formatoISO: "2022-08-08",
+        formatoHumano: "Agosto, 2022"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Jorge Téllez",
+    estatus: "alumno",
+    puesto: "Alumno",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-03-13",
+        formatoHumano: "Marzo, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Israel Islas Barajas",
+    estatus: "alumno",
+    puesto: "Asistente de investigación",
+    periodo: {
+      inicio: {
+        formatoISO: "2024-08-20",
+        formatoHumano: "Agosto, 2024"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Pablo Maldonado",
+    estatus: "alumno",
+    puesto: "Colaborador en programa de Machine Learning para procesamiento de lenguaje natural.",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-02-20",
+        formatoHumano: "Febrero, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "León Dueñas",
+    estatus: "alumno",
+    puesto: "Alumno de maestria",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-02-01",
+        formatoHumano: "Enero, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "César Segura",
+    estatus: "alumno",
+    puesto: "Servicio Social",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-02-21",
+        formatoHumano: "Febrero, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Elías López",
+    estatus: "alumno",
+    puesto: "Servicio Social",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-02-04",
+        formatoHumano: "Febrero, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Damián Rojas Reyes",
+    estatus: "alumno",
+    puesto: "Miembro",
+    periodo: {
+      inicio: {
+        formatoISO: "2024-02-19",
+        formatoHumano: "Febrero, 2024"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Jessica Huelgas",
     estatus: "academico",
+    puesto: "Investigadora en Formación en IA y NLP",
     periodo: {
       inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
+        formatoISO: "2024-11-04",
+        formatoHumano: "Noviembre, 2024"
       },
       fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
       }
     }
   },
   {
-    nombre: "Juan Pérez",
-    puesto: "Maestro",
+    nombre: "Jesús Vázquez Osorio",
+    estatus: "alumno",
+    puesto: "Estudiante de maestría y asistente de investigación",
+    periodo: {
+      inicio: {
+        formatoISO: "2024-03-01",
+        formatoHumano: "Febrero, 2024"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Oscar Hernandez Salinas",
+    estatus: "alumno",
+    puesto: "Servicio Social",
+    periodo: {
+      inicio: {
+        formatoISO: "2025-02-17",
+        formatoHumano: "Febrero, 2025"
+      },
+      fin: {
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
+      }
+    }
+  },
+  {
+    nombre: "Sergio Padilla Reynaud",
     estatus: "academico",
+    puesto: "Desarrollador",
     periodo: {
       inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
+        formatoISO: "2024-08-20",
+        formatoHumano: "Agosto, 2024"
       },
       fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
       }
     }
   },
   {
-    nombre: "María López",
-    puesto: "Maestro",
+    nombre: "Mónica Vázquez Hernández",
     estatus: "academico",
+    puesto: "Técnica académica de apoyo a la investigación",
     periodo: {
       inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
+        formatoISO: "2024-05-22",
+        formatoHumano: "Mayo, 2024"
       },
       fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
+        formatoISO: "2025-07-01",
+        formatoHumano: "Actualidad"
       }
     }
-  },
-  {
-    nombre: "Carlos Gómez",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Carlos Gómez",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Ana Rodríguez",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Ana Rodríguez",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Luis Fernández",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Laura Martínez",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Luis Fernández",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Laura Martínez",
-    puesto: "Maestro",
-    estatus: "alumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "José González",
-    puesto: "Maestro",
-    estatus: "exalumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Sofía Hernández",
-    puesto: "Maestro",
-    estatus: "exalumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "José González",
-    puesto: "Maestro",
-    estatus: "exalumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-  {
-    nombre: "Sofía Hernández",
-    puesto: "Maestro",
-    estatus: "exalumno",
-    periodo: {
-      inicio: {
-        formatoISO: "2025-01",
-        formatoHumano: "Enero 2025",
-      },
-      fin: {
-        formatoISO: "2025-07",
-        formatoHumano: "Julio 2025",
-      }
-    }
-  },
-];
+  }
+]

@@ -34,6 +34,7 @@ const obtenerTitulo = (cargo: string): string => {
 };
 ---
 
+<hr class="mt-48" />
 <!-- Creamos un seccion principal la cual contendra a las demas secciones con los miembros categorizados por estatus -->
 <section class="mt-48 section-p-sides content-section" id="miembros">
   <h2>Miembros</h2>
@@ -53,3 +54,19 @@ const obtenerTitulo = (cargo: string): string => {
     })
   }
 </section>
+
+<style>
+  hr {
+    width: 60dvw;
+    border: none;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--surface-color) 0%,
+      var(--primary-color) 10%,
+      var(--primary-color) 90%,
+      var(--surface-color) 100%
+    );
+    background-size: 100% 100%;
+  }
+</style>
