@@ -80,7 +80,9 @@ export interface Contacto {
 
   Propiedades:
     - nombre: Contiene el nombre del integrante, se sugiere solo incluir el primer nombre y apellido.
-    - puesto: Indica el nombre del puesto o trabajo que desempeño durante su estancia en el laboratorio.
+    - puesto: Indica el nombre del puesto o trabajo que desempeño durante su estancia en el laboratorio para los
+      academicos, mientras que para los alumnos indica si fue alumno de Servicio Social, Licenciatura, Maestría o
+      Doctorado.
     - estatus: Indica si el miembro es un alumno actual o anterior o si se trato de un academico.
     - periodo: Contiene informacion sobre el periodo durante el cual el integrante formo parte del laboratorio.
       - inicio: Contiene la fecha en la que entro al laboratorio.

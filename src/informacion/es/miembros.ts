@@ -21,26 +21,26 @@ export const miembros: Miembro[] = [
     puesto: "Investigadora Titula A",
     periodo: {
       inicio: {
-        formatoISO: "2020-01-01",
-        formatoHumano: "Enero, 2020"
+        formatoISO: "2024-06-01",
+        formatoHumano: "Agosto, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
   },
   {
-    nombre: "Ethan Sanchez",
+    nombre: "Ethan Sánchez",
     estatus: "alumno",
-    puesto: "Estudiante",
+    puesto: "Servicio Social",
     periodo: {
       inicio: {
         formatoISO: "2025-01-13",
         formatoHumano: "Enero, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -63,14 +63,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "Andric Valdez",
     estatus: "alumno",
-    puesto: "Estudiante Doctorado",
+    puesto: "Doctorado",
     periodo: {
       inicio: {
         formatoISO: "2022-08-08",
         formatoHumano: "Agosto, 2022"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -78,14 +78,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "Jorge Téllez",
     estatus: "alumno",
-    puesto: "Alumno",
+    puesto: "Licenciatura",
     periodo: {
       inicio: {
         formatoISO: "2025-03-13",
         formatoHumano: "Marzo, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -93,14 +93,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "Israel Islas Barajas",
     estatus: "alumno",
-    puesto: "Asistente de investigación",
+    puesto: "Doctorado",
     periodo: {
       inicio: {
         formatoISO: "2024-08-20",
         formatoHumano: "Agosto, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -108,14 +108,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "Pablo Maldonado",
     estatus: "alumno",
-    puesto: "Colaborador en programa de Machine Learning para procesamiento de lenguaje natural.",
+    puesto: "Doctorado",
     periodo: {
       inicio: {
         formatoISO: "2025-02-20",
         formatoHumano: "Febrero, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -123,14 +123,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "León Dueñas",
     estatus: "alumno",
-    puesto: "Alumno de maestria",
+    puesto: "Maestría",
     periodo: {
       inicio: {
         formatoISO: "2025-02-01",
         formatoHumano: "Enero, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -145,7 +145,7 @@ export const miembros: Miembro[] = [
         formatoHumano: "Febrero, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -160,7 +160,7 @@ export const miembros: Miembro[] = [
         formatoHumano: "Febrero, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -168,14 +168,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "Damián Rojas Reyes",
     estatus: "alumno",
-    puesto: "Miembro",
+    puesto: "Licenciatura",
     periodo: {
       inicio: {
         formatoISO: "2024-02-19",
         formatoHumano: "Febrero, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -190,7 +190,7 @@ export const miembros: Miembro[] = [
         formatoHumano: "Noviembre, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -198,14 +198,14 @@ export const miembros: Miembro[] = [
   {
     nombre: "Jesús Vázquez Osorio",
     estatus: "alumno",
-    puesto: "Estudiante de maestría y asistente de investigación",
+    puesto: "Maestría",
     periodo: {
       inicio: {
         formatoISO: "2024-03-01",
         formatoHumano: "Febrero, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -220,7 +220,7 @@ export const miembros: Miembro[] = [
         formatoHumano: "Febrero, 2025"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -235,7 +235,7 @@ export const miembros: Miembro[] = [
         formatoHumano: "Agosto, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
@@ -250,7 +250,7 @@ export const miembros: Miembro[] = [
         formatoHumano: "Mayo, 2024"
       },
       fin: {
-        formatoISO: "2025-07-01",
+        formatoISO: "",
         formatoHumano: "Actualidad"
       }
     }
