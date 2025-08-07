@@ -18,7 +18,7 @@ export const miembros: Miembro[] = [
   {
     nombre: "Helena Adorno",
     estatus: "academico",
-    puesto: "Investigadora Titula A",
+    puesto: "Investigadora Titular A",
     periodo: {
       inicio: {
         formatoISO: "2024-06-01",

@@ -8,9 +8,10 @@ en el **Instituto de Investigaciones en Matemáticas Aplicadas y Sistemas** (IIM
 
 ## Tecnologías Utilizadas
 
-- Astro 5.4.1: Este framework facilita la creación de sitios estáticos al permitirnos la generar componentes con el fin de
+- Astro 5.11.0: Este framework facilita la creación de sitios estáticos al permitirnos la generar componentes con el fin de
   reutilizar la lógica de nuestra aplicación, optimización de imágenes y encapsular los estilos CSS por componente.
 - Prettier 3.5.1: Nos permite aplicar formato a nuestro código con el fin de facilitar su legibilidad.
+- TypeScript 5.8.3
 
 ## Configuración VS Code
 
