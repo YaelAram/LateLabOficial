@@ -9,8 +9,7 @@ import type { QuienesSomos } from "@interfaces/types";
 */
 export const quienesSomos: QuienesSomos = {
   parrafos: [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin leo vel arcu dapibus tincidunt. Sed tempor ornare volutpat. Curabitur eget nibh dolor. Mauris id semper turpis. Curabitur sit amet ante id massa scelerisque consequat. Fusce in nibh nec elit tempor tincidunt. Maecenas lorem dui, mattis ac augue et, molestie imperdiet mi. Sed eu dapibus metus.",
-    "Aliquam dui tortor, ullamcorper eu libero et, mattis fringilla magna. Morbi ac nunc et justo scelerisque cursus. Ut ac feugiat mauris, non aliquet ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam sit amet urna libero. Fusce ultrices bibendum quam, et ornare nunc vehicula a. Nam consequat dignissim lobortis. Donec eu auctor ante.",
+    "LATE Lab tiene como misión desarrollar investigación interdisciplinaria y de alto impacto en procesamiento de lenguaje natural (PLN), orientada al análisis computacional del lenguaje en contextos sociales, mediáticos, clínicos y culturales. El laboratorio impulsa la creación de herramientas, recursos lingüísticos y marcos computacionales permitan explorar cómo se estructura, transmite y transforma el lenguaje en escenarios reales."
   ],
   contactos: [
     {
